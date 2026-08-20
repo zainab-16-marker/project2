@@ -1,7 +1,3 @@
-<h1>
-  <span class="headline">New Project</span>
-  <span class="subhead">Setup</span>
-</h1>
 
 # 💄 Beauty Store Management System
 
@@ -11,13 +7,13 @@ The application allows a store owner to manage products and shipments through an
 
 ---
 
-## 📸 Screenshot
+## Screenshot
 
 ![Beauty Store Management System]
 
 ---
 
-## 📝 Project Description
+##  Project Description
 
 The **Beauty Store Management System** is a full-stack web application designed for a beauty store.
 
@@ -33,7 +29,7 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
-## 🎯 User Stories
+##  User Stories
 
 ### Authentication
 
