@@ -1,5 +1,5 @@
 
-# 💄 Beauty Store Management System
+#  Beauty Store Management System
 
 A full-stack beauty store management and shopping application built with **Node.js, Express, MongoDB, and EJS**.
 
@@ -64,9 +64,9 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🔐 Authentication & Authorization
+###  Authentication & Authorization
 
 - User registration
 - User login
@@ -74,7 +74,7 @@ The application uses **session-based authentication and role-based authorization
 - Logout
 - Protected admin routes
 
-### 👩🏻‍💼 Admin Features
+###  Admin Features
 
 - Admin dashboard
 - View all products
@@ -88,7 +88,7 @@ The application uses **session-based authentication and role-based authorization
 - Update shipment information
 
 
-### 🛍️ Customer Features
+###  Customer Features
 
 - Browse available products
 - View product details
@@ -104,6 +104,6 @@ The application uses **session-based authentication and role-based authorization
 
 
 
-## 🔗 Wire Frame
+##  Wire Frame
 
 [View Wire Frame for the system](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
