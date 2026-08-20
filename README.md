@@ -114,5 +114,4 @@ The application uses **session-based authentication and role-based authorization
 
 [View Wire Frame for the system](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
 
-[View Wire Frame for the system](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
 
