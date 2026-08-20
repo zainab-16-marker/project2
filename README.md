@@ -102,15 +102,6 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
-## 🗂️ Data Models
-
-### User
-
-```text
-username: String
-password: String
-role: Enum
-
 ## 🔗 Wire Frame
 
 [View WireFrame for the system](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
