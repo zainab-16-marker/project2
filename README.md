@@ -103,6 +103,11 @@ The application uses **session-based authentication and role-based authorization
 ---
 
 
+##  ERD
+
+![Beauty Store Management System ERD](./imges/erd.jpg)
+
+
 
 ##  Wire Frame
 
