@@ -101,29 +101,6 @@ The application uses **session-based authentication and role-based authorization
 - Track shipments
 
 ---
-## 🗂️ Data Models
-
-### User
-
-```text
-username: String
-password: String
-role: Enum
----
-### products
-```text
-name: String
-price: Number
-quantityAvailable: Number
-category: Enum
----
-### shipments
-```text
-user: User Schema
-product: Product Schema
-shipmentDate: Date
-shipmentAddress: String
----
 
 
 
