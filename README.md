@@ -111,4 +111,17 @@ username: String
 password: String
 role: Enum
 
+### Products
+```text
+name: String
+price: Number
+quantityAvailable: Number
+category: Enum
 
+### shippments
+```text
+user: User Schema
+product: Product Schema
+shipmentDate: Date
+shipmentAddress: String
+[View ERD](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
