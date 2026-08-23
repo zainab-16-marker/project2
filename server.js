@@ -19,6 +19,10 @@ const addUserToViews = require('./middleware/addUserToViews');
 const authRouter = require('./routes/authRouter');
 const pagesRouter = require('./routes/pagesRouter');
 
+const productsCtrl = require('./controllers/productsCtrl');
+const shippmentsCtrl = require('./controllers/shippmentsCtrl');
+
+
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -44,12 +48,39 @@ app.use(addUserToViews);
 app.use('', pagesRouter);
 app.use('/auth', authRouter);
 
+// products routes
+app.get('/products', productsCtrl.index);
+app.get('/products/new', productsCtrl.new);
+app.post('/products', productsCtrl.create);
+app.get('/products/:id', productsCtrl.show);
+app.get('/products/:id/edit', productsCtrl.edit);
+app.put('/products/:id', productsCtrl.update);
+app.delete('/products/:id', productsCtrl.deleteProduct);
 // Customer middleware
 app.use(isSignedIn);
+
+//shipments routes
+app.get('/shippments', shippmentsCtrl.index);
+app.get('/shippments/new', shippmentsCtrl.new);
+app.post('/shippments', shippmentsCtrl.create);
+app.get('/shippments/:id', shippmentsCtrl.show);
+app.get('/shippments/:id/edit', shippmentsCtrl.edit);
+app.put('/shippments/:id', shippmentsCtrl.update);
+app.delete('/shippments/:id', shippmentsCtrl.delete);
+
 
 app.get('/protected', async (req, res) => {
   res.send(`You are logged in as ${req.session.user.username}`);
 });
+
+
+
+
+
+//shippments routes
+
+
+
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
