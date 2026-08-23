@@ -8,17 +8,25 @@ const shippmentSchema = new mongoose.Schema({
     required: true,
   },
 
-  product: {
+products: [
+  {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',
-    required: true,
   },
+],
 
   status: {
     type: String,
     enum: ['pending', 'shipped', 'delivered'],
     default: 'pending',
   },
+
+  paymentMethod: {
+  type: String,
+  enum: ['Apple Pay', 'Cash on delivery','Paypal','Benefit Pay ','Credi Card '],
+  required: true,
+},
+
 
   shippmentAdress: {
     type: String,
@@ -32,6 +40,6 @@ const shippmentSchema = new mongoose.Schema({
 
 });
 
-const Shippment = mongoose.model('Shippment', shippmentSchema);
+const Shipment = mongoose.model('Shipment', shippmentSchema);
 
-module.exports = Shippment;
+module.exports = Shipment;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipment Details</title>
+</head>
+
+<body>
+
+  <h1>Shipment Details</h1>
+
+  <p>
+    <strong>Customer:</strong>
+    <%= shipment.user.username %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= shipment.status %>
+  </p>
+
+  <p>
+    <strong>Shipping Address:</strong>
+    <%= shipment.shippmentAdress %>
+  </p>
+
+  <p>
+    <strong>Shipment Date:</strong>
+    <%= shipment.shippmentDate.toDateString() %>
+  </p>
+
+  <h2>Products</h2>
+
+  <% shipment.products.forEach(product => { %>
+
+    <div>
+
+      <p>
+        <strong><%= product.name %></strong>
+      </p>
+
+      <p>
+        Price: <%= product.price %>
+      </p>
+
+    </div>
+
+    <hr>
+
+  <% }) %>
+
+  <br>
+
+  <a href="/shippments">
+    Back to Shipments
+  </a>
+
+</body>
+</html>

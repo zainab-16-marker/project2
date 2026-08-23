@@ -3,22 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Shipments</title>
+  <title>My Shipments</title>
 </head>
 
 <body>
 
-  <h1>All Shipments</h1>
-
-  <a href="/shippments/new">
-    Add New Shipment
-  </a>
-
-  <hr>
+  <h1>My Shipments</h1>
 
   <% if (shippments.length === 0) { %>
 
-    <p>No shipments found.</p>
+    <p>You don't have any shipments yet.</p>
 
   <% } else { %>
 
@@ -27,11 +21,6 @@
       <div>
 
         <h2>Shipment</h2>
-
-        <p>
-          <strong>Customer:</strong>
-          <%= shippment.user.username %>
-        </p>
 
         <p>
           <strong>Status:</strong>
@@ -47,23 +36,22 @@
           <strong>Shipment Date:</strong>
           <%= shippment.shippmentDate.toDateString() %>
         </p>
+        <p>
+          <strong>Payment Method:</strong>
+          <%= shippment.paymentMethod %>
+        </p>
 
-        <h3>Products:</h3>
+
+        <h3>Products</h3>
 
         <% shippment.products.forEach(product => { %>
 
           <p>
-            <strong><%= product.name %></strong>
-            - Price: <%= product.price %>
+            <%= product.name %> -
+            <%= product.price %>
           </p>
 
         <% }) %>
-
-        <br>
-
-        <a href="/shippments/<%= shippment._id %>">
-          View Shipment
-        </a>
 
       </div>
 
@@ -73,5 +61,9 @@
 
   <% } %>
 
+  <br>
+
+  <a href="/shop">Continue Shopping</a>
+
 </body>
-</html> 
+</html>

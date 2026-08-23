@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+</head>
+
+<body>
+
+  <h1>Checkout</h1>
+
+  <h2>Your Products</h2>
+
+  <% cart.forEach(item => { %>
+
+    <div>
+
+      <p>
+        <strong><%= item.name %></strong>
+      </p>
+
+      <p>
+        Price: <%= item.price %>
+      </p>
+
+      <p>
+        Quantity: <%= item.quantity %>
+      </p>
+
+    </div>
+
+    <hr>
+
+  <% }) %>
+
+
+  <h2>Shipping Information</h2>
+
+  <form action="/checkout" method="POST">
+
+    <label for="shippmentAdress">
+      Shipping Address:
+    </label>
+
+    <br>
+
+    <input
+      type="text"
+      name="shippmentAdress"
+      id="shippmentAdress"
+      required
+    >
+
+    <br><br>
+
+<label for="paymentMethod">Choose the payment method:</label>
+
+<select id="paymentMethod" name="paymentMethod" required>
+  <option value="Apple Pay">Apple Pay</option>
+  <option value="Cash on delivery">Cash on delivery</option>
+  <option value="Paypal">Paypal</option>
+  <option value="Benifit Pay">Benifit Pay</option>
+  <option value="Credit Card">Credit Card</option>
+</select>
+
+<br><br>
+
+<button type="submit">
+  Pay
+</button>
+
+  </form>
+
+  <br>
+
+  <a href="/cart">
+    Back to Cart
+  </a>
+
+</body>
+</html>

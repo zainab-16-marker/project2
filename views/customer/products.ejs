@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+</head>
+
+<body>
+
+  <h1>Beauty Products</h1>
+
+  <% products.forEach(product => { %>
+
+    <div>
+
+      <h2><%= product.name %></h2>
+
+      <p>Price: <%= product.price %></p>
+
+      <a href="/shop/<%= product._id %>">
+        View Product
+      </a>
+
+    </div>
+
+    <hr>
+
+  <% }) %>
+
+</body>
+</html>

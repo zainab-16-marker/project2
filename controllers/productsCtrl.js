@@ -32,6 +32,15 @@ const deleteProduct = async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
   res.redirect('/products');
 };
+const customerProducts = async (req, res) => {
+  const products = await Product.find({});
+  res.render('customer/products.ejs', { products });
+};
+const customerShow = async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  res.render('customer/show.ejs', { product });
+};
 
 module.exports = {
   index,
@@ -41,4 +50,6 @@ module.exports = {
   edit,
   update,
   deleteProduct,
+  customerProducts,
+  customerShow,
 };
