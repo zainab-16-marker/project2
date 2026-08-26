@@ -3,43 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= product.name %></title>
+
+  <title><%= product.name %> | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1><%= product.name %></h1>
+  <!-- Navbar -->
 
-  <p>Price: <%= product.price %></p>
+  <nav class="navbar">
 
-  <p>Category: <%= product.category %></p>
+    <a href="/shop" class="navbar-logo">
+      ZOI
+    </a>
 
-  <hr>
+    <div class="navbar-actions">
 
-  <h2>Add to Cart</h2>
+      <a href="/cart" class="cart-link" aria-label="Cart">
+        🛒
+      </a>
 
-  <form action="/cart/add/<%= product._id %>" method="POST">
+      <button
+        class="menu-button"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
 
-    <label for="quantity">Quantity:</label>
+    </div>
 
-    <input
-      type="number"
-      name="quantity"
-      id="quantity"
-      value="1"
-      min="1"
-      required
-    >
+    <div class="dropdown-menu" id="dropdownMenu">
 
-    <button type="submit">
-      Add to Cart
-    </button>
+      <a href="/my-shipments">
+        Shipments
+      </a>
 
-  </form>
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
 
-  <br>
+    </div>
 
-  <a href="/shop">Back to Products</a>
+  </nav>
+
+
+  <!-- Product Details -->
+
+  <main class="product-details-page">
+
+    <a href="/shop" class="back-link">
+      ← Back to Shop
+    </a>
+
+
+    <section class="product-details-card">
+
+
+      <!-- Product Image -->
+
+      <div class="product-details-image">
+
+        <p>Product Image</p>
+
+      </div>
+
+
+      <!-- Product Information -->
+
+      <div class="product-details-info">
+
+        <p class="product-details-category">
+          <%= product.category %>
+        </p>
+
+
+        <h1>
+          <%= product.name %>
+        </h1>
+
+
+        <p class="product-details-price">
+          <%= product.price %> BHD
+        </p>
+
+
+        <hr>
+
+
+        <% if (product.quantity > 0) { %>
+
+          <p class="stock-status">
+            In Stock
+          </p>
+
+        <% } else { %>
+
+          <p class="out-of-stock">
+            Out of Stock
+          </p>
+
+        <% } %>
+
+
+        <!-- Add to Cart -->
+
+        <% if (product.quantity > 0) { %>
+
+          <form
+            action="/cart/add/<%= product._id %>"
+            method="POST"
+            class="details-cart-form"
+          >
+
+            <label for="quantity">
+              Quantity
+            </label>
+
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              value="1"
+              min="1"
+              max="<%= product.quantity %>"
+              required
+            >
+
+
+            <button
+              type="submit"
+              class="details-cart-button"
+            >
+              🛒 Add to Cart
+            </button>
+
+          </form>
+
+        <% } else { %>
+
+          <button
+            class="details-cart-button disabled"
+            disabled
+          >
+            Out of Stock
+          </button>
+
+        <% } %>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      const menu = document.getElementById('dropdownMenu');
+
+      menu.classList.toggle('show');
+
+    }
+
+  </script>
 
 </body>
 </html>

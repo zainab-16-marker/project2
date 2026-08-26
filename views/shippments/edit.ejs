@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/css/style.css">
+  <title>Edit Shipment | Zoi</title>
+
+
+</head>
+
+<body>
+
+  <main class="admin-form-page">
+
+    <div class="admin-page-header">
+
+      <div>
+        <h1>Edit Shipment</h1>
+
+        <p>
+          Update shipment information
+        </p>
+      </div>
+
+    </div>
+
+
+    <form
+      action="/shippments/<%= shipment._id %>?_method=PUT"
+      method="POST"
+      class="admin-form"
+    >
+
+
+      <!-- Customer -->
+
+      <div class="form-group">
+
+        <label for="user">
+          Customer
+        </label>
+
+        <select
+          name="user"
+          id="user"
+          required
+        >
+
+          <% users.forEach(user => { %>
+
+            <option
+              value="<%= user._id %>"
+              <%= shipment.user._id.toString() === user._id.toString() ? 'selected' : '' %>
+            >
+              <%= user.username %>
+            </option>
+
+          <% }) %>
+
+        </select>
+
+      </div>
+
+
+      <!-- Products -->
+
+      <div class="form-group">
+
+        <label>
+          Products
+        </label>
+
+        <div class="selected-products">
+
+          <% shipment.products.forEach(product => { %>
+
+            <div>
+
+              <span>
+                <%= product.name %>
+              </span>
+
+              <input
+                type="hidden"
+                name="products"
+                value="<%= product._id %>"
+              >
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+      </div>
+
+
+      <!-- Status -->
+
+      <div class="form-group">
+
+        <label for="status">
+          Status
+        </label>
+
+        <select
+          name="status"
+          id="status"
+          required
+        >
+
+          <option
+            value="pending"
+            <%= shipment.status === 'pending' ? 'selected' : '' %>
+          >
+            Pending
+          </option>
+
+          <option
+            value="shipped"
+            <%= shipment.status === 'shipped' ? 'selected' : '' %>
+          >
+            Shipped
+          </option>
+
+          <option
+            value="delivered"
+            <%= shipment.status === 'delivered' ? 'selected' : '' %>
+          >
+            Delivered
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Shipping Address -->
+
+      <div class="form-group">
+
+        <label for="shippmentAdress">
+          Shipping Address
+        </label>
+
+        <input
+          type="text"
+          name="shippmentAdress"
+          id="shippmentAdress"
+          value="<%= shipment.shippmentAdress %>"
+          required
+        >
+
+      </div>
+
+
+      <!-- Shipment Date -->
+
+      <div class="form-group">
+
+        <label for="shippmentDate">
+          Shipment Date
+        </label>
+
+        <input
+          type="date"
+          name="shippmentDate"
+          id="shippmentDate"
+          value="<%= shipment.shippmentDate.toISOString().split('T')[0] %>"
+          required
+        >
+
+      </div>
+
+
+      <!-- Update -->
+
+      <button
+        type="submit"
+        class="admin-button"
+      >
+        Update Shipment
+      </button>
+
+
+    </form>
+
+
+    <a
+      href="/shippments/<%= shipment._id %>"
+      class="back-link"
+    >
+      ← Back to Shipment
+    </a>
+
+
+  </main>
+
+</body>
+</html>

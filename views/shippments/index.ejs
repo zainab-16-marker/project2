@@ -1,77 +1,148 @@
-<!DOCTYPE html>
+ <link rel="stylesheet" href="/css/style.css">
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Shipments</title>
+ <link rel="stylesheet" href="/css/style.css">
+  <title>Shipments | Zoi</title>
+
+
 </head>
 
 <body>
 
-  <h1>All Shipments</h1>
+  <main class="admin-page">
 
-  <a href="/shippments/new">
-    Add New Shipment
-  </a>
-
-  <hr>
-
-  <% if (shippments.length === 0) { %>
-
-    <p>No shipments found.</p>
-
-  <% } else { %>
-
-    <% shippments.forEach(shippment => { %>
+    <div class="admin-page-header">
 
       <div>
-
-        <h2>Shipment</h2>
-
-        <p>
-          <strong>Customer:</strong>
-          <%= shippment.user.username %>
-        </p>
+        <h1>Shipments</h1>
 
         <p>
-          <strong>Status:</strong>
-          <%= shippment.status %>
+          Manage all customer shipments
         </p>
+      </div>
+
+    </div>
+
+
+    <!-- Add New Shipment -->
+
+    <div class="add-shipment-container">
+
+      <a
+        href="/shippments/new"
+        class="admin-button"
+      >
+        + Add New Shipment
+      </a>
+
+    </div>
+
+
+    <!-- Shipments -->
+
+    <% if (shippments.length === 0) { %>
+
+      <div class="empty-card">
 
         <p>
-          <strong>Shipping Address:</strong>
-          <%= shippment.shippmentAdress %>
+          No shipments found.
         </p>
-
-        <p>
-          <strong>Shipment Date:</strong>
-          <%= shippment.shippmentDate.toDateString() %>
-        </p>
-
-        <h3>Products:</h3>
-
-        <% shippment.products.forEach(product => { %>
-
-          <p>
-            <strong><%= product.name %></strong>
-            - Price: <%= product.price %>
-          </p>
-
-        <% }) %>
-
-        <br>
-
-        <a href="/shippments/<%= shippment._id %>">
-          View Shipment
-        </a>
 
       </div>
 
-      <hr>
+    <% } else { %>
 
-    <% }) %>
+      <div class="shipments-grid">
 
-  <% } %>
+        <% shippments.forEach(shippment => { %>
+
+          <div class="shipment-card">
+
+
+            <!-- Card Header -->
+
+            <div class="shipment-card-header">
+
+              <h2>
+                Shipment
+              </h2>
+
+              <span class="status <%= shippment.status %>">
+                <%= shippment.status %>
+              </span>
+
+            </div>
+
+
+            <!-- Shipment Information -->
+
+            <div class="shipment-info">
+
+              <p>
+                <strong>Customer:</strong>
+                <%= shippment.user.username %>
+              </p>
+
+              <p>
+                <strong>Shipping Address:</strong>
+                <%= shippment.shippmentAdress %>
+              </p>
+
+              <p>
+                <strong>Shipment Date:</strong>
+                <%= shippment.shippmentDate.toDateString() %>
+              </p>
+
+            </div>
+
+
+            <!-- Products -->
+
+            <div class="shipment-products">
+
+              <h3>
+                Products
+              </h3>
+
+              <% shippment.products.forEach(product => { %>
+
+                <p>
+                  <strong>
+                    <%= product.name %>
+                  </strong>
+
+                  -
+                  <%= product.price %> BHD
+                </p>
+
+              <% }) %>
+
+            </div>
+
+
+            <!-- View -->
+
+            <a
+              href="/shippments/<%= shippment._id %>"
+              class="view-shipment-button"
+            >
+              View Shipment
+            </a>
+
+
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
+
+
+  </main>
 
 </body>
-</html> 
+</html>

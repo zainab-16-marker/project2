@@ -22,6 +22,15 @@ const customerShipments = async (req, res) => {
   res.render('customer/shipments.ejs', { shippments });
 };
 
+const customerShipmentShow = async (req, res) => {
+  const shipment = await Shipment.findOne({
+    _id: req.params.id,
+    user: req.session.user._id,
+  }).populate('products');
+
+  res.render('customer/shipment.ejs', { shipment });
+};
+
 const newShip = async (req, res) => {
   const users = await User.find({});
   const products = await Product.find({});
@@ -41,9 +50,17 @@ const show = async (req, res) => {
   res.render('shippments/show.ejs', { shipment });
 };
 const edit = async (req, res) => {
-  const shipment = await Shipment.findById(req.params.id);
+  const shipment = await Shipment.findById(req.params.id)
+    .populate('products');
 
-  res.render('shippments/edit.ejs', { shipment });
+  const users = await User.find({});
+  const products = await Product.find({});
+
+  res.render('shippments/edit.ejs', {
+    shipment,
+    users,
+    products,
+  });
 };
 
 const update = async (req, res) => {
@@ -73,5 +90,6 @@ module.exports = {
   update,
  deleteShip,
  customerShipments,
+ customerShipmentShow,
 
 };

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Track Shipment | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav class="navbar">
+
+    <a href="/shop" class="navbar-logo">
+      ZOI
+    </a>
+
+    <div class="navbar-actions">
+
+      <a href="/cart" class="cart-link" aria-label="Cart">
+        🛒
+      </a>
+
+      <button
+        class="menu-button"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+
+      <a href="/my-shipments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- Shipment Tracking -->
+
+  <main class="tracking-page">
+
+    <a href="/my-shipments" class="back-link">
+      ← Back to My Shipments
+    </a>
+
+    <h1>Track Shipment</h1>
+
+
+    <section class="tracking-card">
+
+      <div class="tracking-header">
+
+        <h2>Shipment Details</h2>
+
+        <span class="shipment-status <%= shipment.status %>">
+          <%= shipment.status %>
+        </span>
+
+      </div>
+
+
+      <div class="tracking-details">
+
+        <div>
+          <p class="detail-label">Shipment Date</p>
+
+          <p>
+            <%= new Date(shipment.shippmentDate).toLocaleDateString() %>
+          </p>
+        </div>
+
+
+        <div>
+          <p class="detail-label">Payment Method</p>
+
+          <p>
+            <%= shipment.paymentMethod %>
+          </p>
+        </div>
+
+
+        <div>
+          <p class="detail-label">Shipping Address</p>
+
+          <p>
+            <%= shipment.shippmentAdress %>
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Tracking Status -->
+
+      <div class="tracking-progress">
+
+        <div class="tracking-step <%= shipment.status === 'pending' || shipment.status === 'shipped' || shipment.status === 'delivered' ? 'active' : '' %>">
+
+          <div class="tracking-circle">
+            1
+          </div>
+
+          <p>Pending</p>
+
+        </div>
+
+
+        <div class="tracking-line"></div>
+
+
+        <div class="tracking-step <%= shipment.status === 'shipped' || shipment.status === 'delivered' ? 'active' : '' %>">
+
+          <div class="tracking-circle">
+            2
+          </div>
+
+          <p>Shipped</p>
+
+        </div>
+
+
+        <div class="tracking-line"></div>
+
+
+        <div class="tracking-step <%= shipment.status === 'delivered' ? 'active' : '' %>">
+
+          <div class="tracking-circle">
+            3
+          </div>
+
+          <p>Delivered</p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Products -->
+
+      <div class="tracking-products">
+
+        <h2>Products</h2>
+
+        <% shipment.products.forEach(product => { %>
+
+          <div class="tracking-product">
+
+            <span>
+              <%= product.name %>
+            </span>
+
+            <span>
+              <%= product.price %> BHD
+            </span>
+
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    </section>
+
+
+    <div class="tracking-actions">
+
+      <a href="/shop" class="continue-shopping">
+        Continue Shopping
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      const menu = document.getElementById('dropdownMenu');
+
+      menu.classList.toggle('show');
+
+    }
+
+  </script>
+
+</body>
+</html>

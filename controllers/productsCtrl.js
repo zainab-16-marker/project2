@@ -32,10 +32,45 @@ const deleteProduct = async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
   res.redirect('/products');
 };
+
 const customerProducts = async (req, res) => {
   const products = await Product.find({});
-  res.render('customer/products.ejs', { products });
+
+  const categories = [
+    'skincare',
+    'makeup',
+    'haircare',
+    'bodycare',
+    'tools&accessories',
+  ];
+
+  const bestSellers = products.slice(0, 3);
+
+  res.render('customer/products.ejs', {
+    products,
+    categories,
+    bestSellers,
+  });
 };
+
+const customerCategory = async (req, res) => {
+  const products = await Product.find({
+    category: req.params.category,
+  });
+
+  res.render('customer/products.ejs', {
+    products,
+    categories: [
+      'skincare',
+      'makeup',
+      'haircare',
+      'bodycare',
+      'tools&accessories',
+    ],
+    bestSellers: [],
+  });
+};
+
 const customerShow = async (req, res) => {
   const product = await Product.findById(req.params.id);
 
@@ -52,4 +87,5 @@ module.exports = {
   deleteProduct,
   customerProducts,
   customerShow,
+  customerCategory,
 };

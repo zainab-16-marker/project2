@@ -1,67 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+
+  <title>Zoi | Admin Dashboard</title>
+
+ <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Admin Dashboard</h1>
+  <header class="dashboard-header">
 
-  <hr>
+    <h1>Zoi</h1>
 
-  <!-- Products Visual -->
+    <p>Admin Dashboard</p>
 
-  <section>
+  </header>
 
-    <h2>Products</h2>
 
-    <p>Total Products: <strong><%= products %></strong></p>
+  <main class="dashboard">
 
-    <!-- <p>Categories:</p> -->
 
-    <!-- <ul>
-      <li>Skincare</li>
-      <li>Makeup</li>
-      <li>Haircare</li>
-      <li>Bodycare</li>
-      <li>Tools & Accessories</li>
-    </ul> -->
+    <!-- Visuals -->
 
-    <a href="/products">
-      <button type="button">Products</button>
-    </a>
+    <div class="dashboard-visuals">
 
-  </section>
 
-  <hr>
+      <!-- Products Visual -->
 
-  <!-- Shipments Visual -->
+      <section class="visual-card">
 
-  <section>
+        <h2>Products by Category</h2>
 
-    <h2>Shipments</h2>
+        <div class="chart">
 
-    <p>Total Shipments: <strong><%= shipments %></strong></p>
 
-    <!-- <ul>
-      <li>Pending: <strong><%= pendingShipments %></strong></li>
-      <li>Shipped: <strong><%= shippedShipments %></strong></li>
-      <li>Delivered: <strong><%= deliveredShipments %></strong></li>
-    </ul> -->
+          <div class="chart-item">
 
-    <a href="/shippments">
-      <button type="button">Shipments</button>
-    </a>
+            <div class="bar">
 
-  </section>
+              <div
+                class="bar-fill"
+                style="height: <%= skincare * 30 %>px;"
+              ></div>
 
-  <hr>
+            </div>
 
-  <p>Total Customers: <strong><%= customers %></strong></p>
+            <p>Skincare</p>
+
+            <span><%= skincare %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= makeup * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Makeup</p>
+
+            <span><%= makeup %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= haircare * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Haircare</p>
+
+            <span><%= haircare %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= bodycare * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Bodycare</p>
+
+            <span><%= bodycare %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= toolsAccessories * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Tools</p>
+
+            <span><%= toolsAccessories %></span>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- Shipments Visual -->
+
+      <section class="visual-card">
+
+        <h2>Shipment Status</h2>
+
+        <div class="chart">
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= pendingShipments * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Pending</p>
+
+            <span><%= pendingShipments %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= shippedShipments * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Shipped</p>
+
+            <span><%= shippedShipments %></span>
+
+          </div>
+
+
+          <div class="chart-item">
+
+            <div class="bar">
+
+              <div
+                class="bar-fill"
+                style="height: <%= deliveredShipments * 30 %>px;"
+              ></div>
+
+            </div>
+
+            <p>Delivered</p>
+
+            <span><%= deliveredShipments %></span>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+    <!-- Total Cards -->
+
+    <div class="dashboard-cards">
+
+
+      <!-- Products Total -->
+
+      <section class="dashboard-card">
+
+        <div class="card-content">
+
+          <h2>Products</h2>
+
+          <p class="card-number">
+            <%= products %>
+          </p>
+
+          <p>Total Products</p>
+
+          <a href="/products" class="dashboard-button">
+            Products
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- Shipments Total -->
+
+      <section class="dashboard-card">
+
+        <div class="card-content">
+
+          <h2>Shipments</h2>
+
+          <p class="card-number">
+            <%= shipments %>
+          </p>
+
+          <p>Total Shipments</p>
+
+          <a href="/shippments" class="dashboard-button">
+            Shipments
+          </a>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+  </main>
 
 </body>
 </html>

@@ -3,67 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Shipments</title>
+
+  <title>My Shipments | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>My Shipments</h1>
+  <!-- Navbar -->
 
-  <% if (shippments.length === 0) { %>
+  <nav class="navbar">
 
-    <p>You don't have any shipments yet.</p>
+    <a href="/shop" class="navbar-logo">
+      ZOI
+    </a>
 
-  <% } else { %>
+    <div class="navbar-actions">
 
-    <% shippments.forEach(shippment => { %>
+      <a href="/cart" class="cart-link" aria-label="Cart">
+        🛒
+      </a>
 
-      <div>
+      <button
+        class="menu-button"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
 
-        <h2>Shipment</h2>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+
+      <a href="/my-shipments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- Shipments -->
+
+  <main class="shipments-page">
+
+    <h1>My Shipments</h1>
+
+
+    <% if (shippments.length === 0) { %>
+
+      <div class="empty-shipments">
+
+        <h2>No Shipments Yet</h2>
 
         <p>
-          <strong>Status:</strong>
-          <%= shippment.status %>
+          You don't have any shipments yet.
         </p>
 
-        <p>
-          <strong>Shipping Address:</strong>
-          <%= shippment.shippmentAdress %>
-        </p>
+        <a href="/shop" class="continue-shopping">
+          Continue Shopping
+        </a>
 
-        <p>
-          <strong>Shipment Date:</strong>
-          <%= shippment.shippmentDate.toDateString() %>
-        </p>
-        <p>
-          <strong>Payment Method:</strong>
-          <%= shippment.paymentMethod %>
-        </p>
+      </div>
+
+    <% } else { %>
+
+      <div class="shipments-grid">
+
+        <% shippments.forEach(shipment => { %>
+
+          <div class="shipment-card">
+
+            <div class="shipment-card-header">
+
+              <h2>
+                Shipment
+              </h2>
+
+              <span class="shipment-status <%= shipment.status %>">
+                <%= shipment.status %>
+              </span>
+
+            </div>
 
 
-        <h3>Products</h3>
+            <div class="shipment-info">
 
-        <% shippment.products.forEach(product => { %>
+              <p>
+                <strong>Shipment Date:</strong>
+                <%= new Date(shipment.shippmentDate).toLocaleDateString() %>
+              </p>
 
-          <p>
-            <%= product.name %> -
-            <%= product.price %>
-          </p>
+              <p>
+                <strong>Payment:</strong>
+                <%= shipment.paymentMethod %>
+              </p>
+
+              <p>
+                <strong>Address:</strong>
+                <%= shipment.shippmentAdress %>
+              </p>
+
+            </div>
+
+
+            <div class="shipment-products">
+
+              <h3>Products</h3>
+
+              <% shipment.products.forEach(product => { %>
+
+                <p>
+                  <%= product.name %>
+                </p>
+
+              <% }) %>
+
+            </div>
+
+
+            <a
+              href="/my-shipments/<%= shipment._id %>"
+              class="track-button"
+            >
+              Track Shipment
+            </a>
+
+          </div>
 
         <% }) %>
 
       </div>
 
-      <hr>
+    <% } %>
 
-    <% }) %>
 
-  <% } %>
+    <div class="continue-shopping-container">
 
-  <br>
+      <a href="/shop" class="continue-shopping">
+        Continue Shopping
+      </a>
 
-  <a href="/shop">Continue Shopping</a>
+    </div>
+
+  </main>
+
+
+  <!-- Menu Script -->
+
+  <script>
+
+    function toggleMenu() {
+
+      const menu = document.getElementById('dropdownMenu');
+
+      menu.classList.toggle('show');
+
+    }
+
+  </script>
 
 </body>
 </html>

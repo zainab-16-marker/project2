@@ -56,6 +56,7 @@ app.get('/admin/dashboard', pagesCtrl.dashboard);
 app.use(isSignedIn);
 //customer 
 app.get('/shop', productsCtrl.customerProducts);
+app.get('/shop/category/:category', productsCtrl.customerCategory);
 app.get('/shop/:id', productsCtrl.customerShow);
 app.post('/cart/add/:id', cartCtrl.add);
 app.get('/cart', cartCtrl.index);
@@ -64,6 +65,7 @@ app.delete('/cart/:id', cartCtrl.remove);
 app.get('/checkout', checkoutCtrl.checkout);
 app.post('/checkout', checkoutCtrl.createOrder);
 app.get('/my-shipments', shippmentsCtrl.customerShipments);
+app.get('/my-shipments/:id', shippmentsCtrl.customerShipmentShow);
 
 // products routes
 

@@ -1,7 +1,5 @@
-
 const Product = require('../models/product');
 const Shipment = require('../models/Shipment');
-const User = require('../models/user');
 
 const home = async (req, res) => {
   res.render('index.ejs');
@@ -10,8 +8,33 @@ const home = async (req, res) => {
 const dashboard = async (req, res) => {
   try {
     const products = await Product.countDocuments();
+
     const shipments = await Shipment.countDocuments();
-    const customers = await User.countDocuments({ role: 'customer' });
+
+    // Products by category
+
+    const skincare = await Product.countDocuments({
+      category: 'skincare',
+    });
+
+    const makeup = await Product.countDocuments({
+      category: 'makeup',
+    });
+
+    const haircare = await Product.countDocuments({
+      category: 'haircare',
+    });
+
+    const bodycare = await Product.countDocuments({
+      category: 'bodycare',
+    });
+
+    const toolsAccessories = await Product.countDocuments({
+      category: 'tools&accessories',
+    });
+
+
+    // Shipments by status
 
     const pendingShipments = await Shipment.countDocuments({
       status: 'pending',
@@ -25,10 +48,17 @@ const dashboard = async (req, res) => {
       status: 'delivered',
     });
 
+
     res.render('admin/dashboard.ejs', {
       products,
       shipments,
-      customers,
+
+      skincare,
+      makeup,
+      haircare,
+      bodycare,
+      toolsAccessories,
+
       pendingShipments,
       shippedShipments,
       deliveredShipments,

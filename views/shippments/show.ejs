@@ -3,58 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shipment Details</title>
+
+  <title>Shipment Details | Zoi</title>
+
+ <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Shipment Details</h1>
+  <main class="admin-form-page">
 
-  <p>
-    <strong>Customer:</strong>
-    <%= shipment.user.username %>
-  </p>
 
-  <p>
-    <strong>Status:</strong>
-    <%= shipment.status %>
-  </p>
+    <!-- Back -->
 
-  <p>
-    <strong>Shipping Address:</strong>
-    <%= shipment.shippmentAdress %>
-  </p>
+    <a
+      href="/shippments"
+      class="back-link"
+    >
+      ← Back to Shipments
+    </a>
 
-  <p>
-    <strong>Shipment Date:</strong>
-    <%= shipment.shippmentDate.toDateString() %>
-  </p>
 
-  <h2>Products</h2>
+    <!-- Shipment Details -->
 
-  <% shipment.products.forEach(product => { %>
+    <section class="shipment-details-card">
 
-    <div>
 
-      <p>
-        <strong><%= product.name %></strong>
-      </p>
+      <div class="shipment-details-header">
 
-      <p>
-        Price: <%= product.price %>
-      </p>
+        <div>
 
-    </div>
+          <h1>
+            Shipment Details
+          </h1>
 
-    <hr>
+          <p>
+            Customer:
+            <%= shipment.user.username %>
+          </p>
 
-  <% }) %>
+        </div>
 
-  <br>
 
-  <a href="/shippments">
-    Back to Shipments
-  </a>
+        <span class="status <%= shipment.status %>">
+          <%= shipment.status %>
+        </span>
+
+      </div>
+
+
+      <!-- Information -->
+
+      <div class="shipment-details-info">
+
+        <p>
+          <strong>Shipping Address:</strong>
+
+          <%= shipment.shippmentAdress %>
+        </p>
+
+        <p>
+          <strong>Shipment Date:</strong>
+
+          <%= shipment.shippmentDate.toDateString() %>
+        </p>
+
+      </div>
+
+
+      <!-- Products -->
+
+      <div class="shipment-products">
+
+        <h2>
+          Products
+        </h2>
+
+
+        <% shipment.products.forEach(product => { %>
+
+          <div class="shipment-product">
+
+            <p>
+              <strong>
+                <%= product.name %>
+              </strong>
+            </p>
+
+            <p>
+              <%= product.price %> BHD
+            </p>
+
+          </div>
+
+        <% }) %>
+
+      </div>
+
+
+      <!-- Actions -->
+
+      <div class="shipment-detail-actions">
+
+        <a
+          href="/shippments/<%= shipment._id %>/edit"
+          class="edit-shipment-button"
+        >
+          Edit Shipment
+        </a>
+
+
+        <form
+          action="/shippments/<%= shipment._id %>?_method=DELETE"
+          method="POST"
+        >
+
+          <button
+            type="submit"
+            class="delete-shipment-button"
+          >
+            Delete Shipment
+          </button>
+
+        </form>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
 
 </body>
 </html>

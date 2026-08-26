@@ -3,30 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products</title>
+
+  <title>Shop | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Beauty Products</h1>
+  <!-- Navbar -->
 
-  <% products.forEach(product => { %>
+  <nav class="navbar">
 
-    <div>
+    <a href="/shop" class="navbar-logo">
+      ZOI
+    </a>
 
-      <h2><%= product.name %></h2>
+    <div class="navbar-actions">
 
-      <p>Price: <%= product.price %></p>
+      <a href="/cart" class="cart-link" aria-label="Cart">
+        🛒
+      </a>
 
-      <a href="/shop/<%= product._id %>">
-        View Product
+      <button
+        class="menu-button"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+
+      <a href="/my-shipments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
       </a>
 
     </div>
 
-    <hr>
+  </nav>
 
-  <% }) %>
+
+  <!-- Shop -->
+
+  <main class="shop-page">
+
+    <h1>Beauty Products</h1>
+
+
+    <!-- Best Sellers -->
+
+    <% if (bestSellers.length > 0) { %>
+
+      <section class="shop-section">
+
+        <h2>Best Sellers</h2>
+
+        <div class="products-grid">
+
+          <% bestSellers.forEach(product => { %>
+
+            <div class="product-card">
+
+              <div class="product-image">
+                <p>Product Image</p>
+              </div>
+
+
+              <div class="product-info">
+
+                <p class="product-category">
+                  <%= product.category %>
+                </p>
+
+                <h3>
+                  <%= product.name %>
+                </h3>
+
+                <p class="product-price">
+                  <%= product.price %> BHD
+                </p>
+
+
+                <!-- Add to Cart -->
+
+                <form
+                  action="/cart/add/<%= product._id %>"
+                  method="POST"
+                  class="add-cart-form"
+                >
+
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                  >
+
+                  <button
+                    type="submit"
+                    class="cart-button"
+                  >
+                    🛒 Add to Cart
+                  </button>
+
+                </form>
+
+
+                <!-- View Product -->
+
+                <a
+                  href="/shop/<%= product._id %>"
+                  class="view-button"
+                >
+                  View Product
+                </a>
+
+              </div>
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+      </section>
+
+    <% } %>
+
+
+    <!-- Categories -->
+
+    <section class="shop-section">
+
+      <h2>Categories</h2>
+
+      <div class="categories">
+
+        <% categories.forEach(category => { %>
+
+          <a
+            href="/shop/category/<%= category %>"
+            class="category-button"
+          >
+            <%= category %>
+          </a>
+
+        <% }) %>
+
+      </div>
+
+    </section>
+
+
+    <!-- All Products -->
+
+    <section class="shop-section">
+
+      <h2>All Products</h2>
+
+      <% if (products.length === 0) { %>
+
+        <p>No products found in this category.</p>
+
+      <% } else { %>
+
+        <div class="products-grid">
+
+          <% products.forEach(product => { %>
+
+            <div class="product-card">
+
+              <div class="product-image">
+                <p>Product Image</p>
+              </div>
+
+
+              <div class="product-info">
+
+                <p class="product-category">
+                  <%= product.category %>
+                </p>
+
+                <h3>
+                  <%= product.name %>
+                </h3>
+
+                <p class="product-price">
+                  <%= product.price %> BHD
+                </p>
+
+
+                <!-- Add to Cart -->
+
+                <form
+                  action="/cart/add/<%= product._id %>"
+                  method="POST"
+                  class="add-cart-form"
+                >
+
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                  >
+
+                  <button
+                    type="submit"
+                    class="cart-button"
+                  >
+                    🛒 Add to Cart
+                  </button>
+
+                </form>
+
+
+                <!-- View Product -->
+
+                <a
+                  href="/shop/<%= product._id %>"
+                  class="view-button"
+                >
+                  View Product
+                </a>
+
+              </div>
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+      <% } %>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      const menu = document.getElementById('dropdownMenu');
+
+      menu.classList.toggle('show');
+
+    }
+
+  </script>
 
 </body>
 </html>
