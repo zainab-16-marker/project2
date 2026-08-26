@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <h1>Admin Dashboard</h1>
+
+  <hr>
+
+  <!-- Products Visual -->
+
+  <section>
+
+    <h2>Products</h2>
+
+    <p>Total Products: <strong><%= products %></strong></p>
+
+    <!-- <p>Categories:</p> -->
+
+    <!-- <ul>
+      <li>Skincare</li>
+      <li>Makeup</li>
+      <li>Haircare</li>
+      <li>Bodycare</li>
+      <li>Tools & Accessories</li>
+    </ul> -->
+
+    <a href="/products">
+      <button type="button">Products</button>
+    </a>
+
+  </section>
+
+  <hr>
+
+  <!-- Shipments Visual -->
+
+  <section>
+
+    <h2>Shipments</h2>
+
+    <p>Total Shipments: <strong><%= shipments %></strong></p>
+
+    <!-- <ul>
+      <li>Pending: <strong><%= pendingShipments %></strong></li>
+      <li>Shipped: <strong><%= shippedShipments %></strong></li>
+      <li>Delivered: <strong><%= deliveredShipments %></strong></li>
+    </ul> -->
+
+    <a href="/shippments">
+      <button type="button">Shipments</button>
+    </a>
+
+  </section>
+
+  <hr>
+
+  <p>Total Customers: <strong><%= customers %></strong></p>
+
+</body>
+</html>

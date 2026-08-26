@@ -87,7 +87,7 @@ app.delete('/shippments/:id', shippmentsCtrl.deleteShip);
 
 
 
-app.use(isSignedIn);
+// app.use(isSignedIn);
 app.get('/protected', async (req, res) => {
   res.send(`You are logged in as ${req.session.user.username}`);
 });
