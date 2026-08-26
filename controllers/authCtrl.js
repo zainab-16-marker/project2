@@ -44,9 +44,17 @@ const register = async (req, res) => {
       _id: user._id,
     };
 
-    // redirect to homepage
+    // redirect to shop or admin dashboard
     req.session.save(() => {
-      res.redirect('/');
+
+      // Admin
+      if (user.username === 'zoiadmin') {
+        return res.redirect('/admin/dashboard');
+      }
+
+      // Customer
+      res.redirect('/shop');
+
     });
   } catch (err) {
     console.log(err);

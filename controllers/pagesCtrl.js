@@ -2,7 +2,7 @@ const Product = require('../models/product');
 const Shipment = require('../models/Shipment');
 
 const home = async (req, res) => {
-  res.render('index.ejs');
+  res.render('intro.ejs');
 };
 
 const dashboard = async (req, res) => {

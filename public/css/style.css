@@ -3039,19 +3039,30 @@ body {
 
   border-bottom: 1px solid #D4B2A7;
 }
+/* =========================
+   LOGO
+   ========================= */
 
-.admin-logo {
-  font-family: Georgia, serif;
+.navbar-logo {
 
-  font-size: 26px;
+  display: flex;
 
-  font-weight: bold;
-
-  color: #6B5550;
+  align-items: center;
 
   text-decoration: none;
 
-  letter-spacing: 2px;
+}
+
+.navbar-logo img {
+
+  width: 70px;
+
+  height: 45px;
+
+  object-fit: contain;
+
+  display: block;
+
 }
 
 .admin-nav-links {
@@ -4047,4 +4058,442 @@ body {
   color: #8A7470;
 
   margin-bottom: 25px;
+}
+/* =========================
+   ZOI INTRO PAGE
+========================= */
+
+.intro-page {
+  min-height: 100vh;
+
+  background-color: #F8F5F2;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Basket */
+
+.intro-basket {
+  width: 240px;
+
+  position: absolute;
+
+  bottom: 18%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+
+  animation: hideBasket 1s ease forwards;
+
+  animation-delay: 6s;
+}
+
+
+/* Products */
+
+.intro-products {
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  top: 0;
+
+  left: 0;
+
+  animation: hideProducts 0.5s ease forwards;
+
+  animation-delay: 2.5s;
+}
+
+
+.intro-product {
+  width: 55px;
+
+  position: absolute;
+
+  left: 50%;
+
+  top: -100px;
+
+  transform: translateX(-50%);
+
+  z-index: 1;
+
+  animation: dropProduct 0.7s ease-in forwards;
+}
+
+
+/* Product timing */
+
+.product-one {
+  animation-delay: 0.2s;
+}
+
+.product-two {
+  animation-delay: 0.5s;
+}
+
+.product-three {
+  animation-delay: 0.8s;
+}
+
+.product-four {
+  animation-delay: 1.1s;
+}
+
+.product-five {
+  animation-delay: 1.4s;
+}
+
+
+/* Falling */
+
+@keyframes dropProduct {
+
+  0% {
+    top: -100px;
+
+    transform:
+      translateX(-50%)
+      rotate(0deg);
+  }
+
+  70% {
+    transform:
+      translateX(-50%)
+      rotate(15deg);
+  }
+
+  100% {
+    top: 63%;
+
+    transform:
+      translateX(-50%)
+      rotate(-10deg);
+  }
+
+}
+
+
+/* Hide products */
+
+@keyframes hideProducts {
+
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+
+
+/* Hide basket */
+
+@keyframes hideBasket {
+
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+
+
+/* Logo */
+
+.intro-logo {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 50%;
+
+  transform: translate(-50%, 50%) scale(0.7);
+
+  opacity: 0;
+
+  z-index: 5;
+
+  animation: showLogo 1s ease forwards;
+
+  animation-delay: 6.2s;
+}
+
+
+.intro-logo img {
+  width: 190px;
+
+  display: block;
+}
+
+
+@keyframes showLogo {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 50%)
+      scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 50%)
+      scale(1);
+  }
+
+}
+.auth-card .auth-logo {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: contain;
+  margin: 0 auto 5px;
+  display: block;
+}
+.navbar-logo img {
+  width: 70px;
+  height: auto;
+}
+
+.cart-link {
+
+  text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  transition: transform 0.2s ease;
+
+}
+
+.cart-link img {
+
+  width: 30px;
+
+  height: 30px;
+
+  object-fit: contain;
+
+  display: block;
+
+}
+.navbar .navbar-logo img {
+  width: 70px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.navbar .cart-link img {
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+.navbar a.navbar-logo {
+  display: flex !important;
+  align-items: center !important;
+  width: 70px !important;
+  height: 45px !important;
+}
+
+.navbar a.navbar-logo img {
+  width: 70px !important;
+  height: 45px !important;
+  max-width: 70px !important;
+  max-height: 45px !important;
+  object-fit: contain !important;
+}
+
+.navbar a.cart-link {
+  display: flex !important;
+  align-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.navbar a.cart-link img {
+  width: 30px !important;
+  height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+  object-fit: contain !important;
+}
+/* =========================
+   CUSTOMER NAVBAR
+   ========================= */
+
+.navbar {
+  height: 80px;
+  padding: 0 40px;
+  background-color: #E7D7C9;
+  border-bottom: 1px solid #D4B2A7;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+
+/* LOGO */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  width: 65px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* ACTIONS */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+
+/* CART */
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.cart-link img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.cart-link:hover {
+  transform: scale(1.1);
+}
+
+
+/* MENU */
+
+.menu-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  font-size: 28px;
+  color: #6B5550;
+
+  padding: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.1);
+}
+
+
+/* DROPDOWN */
+
+.dropdown-menu {
+  display: none;
+
+  position: absolute;
+  top: 70px;
+  right: 35px;
+
+  width: 190px;
+
+  background-color: #EDE9E3;
+
+  border: 1px solid #D4B2A7;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 20px rgba(107, 85, 80, 0.15);
+
+  overflow: hidden;
+
+  z-index: 100;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 15px 18px;
+
+  color: #6B5550;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #E7D7C9;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar-logo img {
+    width: 55px;
+    height: 45px;
+  }
+
+  .navbar-actions {
+    gap: 15px;
+  }
+
+  .dropdown-menu {
+    right: 20px;
+  }
+
 }

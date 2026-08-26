@@ -11,43 +11,7 @@
 
 <body>
 
-  <!-- Navbar -->
-
-  <nav class="navbar">
-
-    <a href="/shop" class="navbar-logo">
-      ZOI
-    </a>
-
-    <div class="navbar-actions">
-
-      <a href="/cart" class="cart-link" aria-label="Cart">
-        🛒
-      </a>
-
-      <button
-        class="menu-button"
-        onclick="toggleMenu()"
-        aria-label="Menu"
-      >
-        ☰
-      </button>
-
-    </div>
-
-    <div class="dropdown-menu" id="dropdownMenu">
-
-      <a href="/my-shipments">
-        Shipments
-      </a>
-
-      <a href="/auth/sign-out">
-        Sign Out
-      </a>
-
-    </div>
-
-  </nav>
+  <%- include('../partials/_navCustomer.ejs') %>
 
 
   <!-- Shipment Tracking -->
@@ -186,19 +150,6 @@
     </div>
 
   </main>
-
-
-  <script>
-
-    function toggleMenu() {
-
-      const menu = document.getElementById('dropdownMenu');
-
-      menu.classList.toggle('show');
-
-    }
-
-  </script>
 
 </body>
 </html>

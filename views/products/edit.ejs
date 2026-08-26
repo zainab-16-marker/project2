@@ -177,7 +177,7 @@
             <option
               value="bodycare"
               <%= product.category === 'bodycare' ? 'selected' : '' %>
-            >
+              >
               Bodycare
             </option>
 
@@ -189,6 +189,25 @@
             </option>
 
           </select>
+
+        </div>
+
+
+        <!-- Product Image -->
+
+        <div class="form-group">
+
+          <label for="image">
+            Product Image
+          </label>
+
+          <input
+            type="text"
+            id="image"
+            name="image"
+            value="<%= product.image || '' %>"
+            placeholder="/accessories/product1.png"
+          >
 
         </div>
 
