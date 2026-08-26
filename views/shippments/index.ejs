@@ -1,27 +1,61 @@
- <link rel="stylesheet" href="/css/style.css">
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
   <title>Shipments | Zoi</title>
-
-
 </head>
 
 <body>
+
+  <!-- Admin Navbar -->
+
+  <nav class="admin-navbar">
+
+    <div class="admin-navbar-logo">
+      ZOI
+    </div>
+
+    <div class="admin-navbar-links">
+
+      <a href="/admin/dashboard">
+        Dashboard
+      </a>
+
+      <a href="/products">
+        Products
+      </a>
+
+      <a href="/shippments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- Shipments Page -->
 
   <main class="admin-page">
 
     <div class="admin-page-header">
 
       <div>
+
         <h1>Shipments</h1>
 
         <p>
           Manage all customer shipments
         </p>
+
       </div>
 
     </div>
@@ -110,12 +144,14 @@
               <% shippment.products.forEach(product => { %>
 
                 <p>
+
                   <strong>
                     <%= product.name %>
                   </strong>
 
                   -
                   <%= product.price %> BHD
+
                 </p>
 
               <% }) %>

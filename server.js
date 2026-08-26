@@ -59,7 +59,7 @@ app.use(addUserToViews);
 // ROUTES
 app.use('', pagesRouter);
 app.use('/auth', authRouter);
-app.get('/admin/dashboard', pagesCtrl.dashboard);
+app.get('/admin/dashboard', isSignedIn, pagesCtrl.dashboard);
 
 
 app.use(isSignedIn);

@@ -1,23 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" required />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required />
+  <title>Sign Up | Zoi</title>
 
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" required />
+  <link rel="stylesheet" href="/css/style.css">
+</head>
 
-      <button type="submit">Sign up</button>
-    </form>
-  </body>
+<body>
+
+  <main class="auth-page">
+
+    <section class="auth-card">
+
+      <div class="auth-header">
+
+        <h1>Create Your Account</h1>
+
+        <p>Join Zoi and start shopping</p>
+
+      </div>
+
+
+      <form
+        action="/auth/sign-up"
+        method="POST"
+        class="auth-form"
+      >
+
+        <div class="auth-form-group">
+
+          <label for="username">
+            Username
+          </label>
+
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+          >
+
+        </div>
+
+
+        <div class="auth-form-group">
+
+          <label for="password">
+            Password
+          </label>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+          >
+
+        </div>
+
+
+        <div class="auth-form-group">
+
+          <label for="confirmPassword">
+            Confirm Password
+          </label>
+
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="auth-button"
+        >
+          Sign Up
+        </button>
+
+      </form>
+
+
+      <a
+        href="/auth/sign-in"
+        class="auth-link"
+      >
+        Already have an account? Sign In
+      </a>
+
+    </section>
+
+  </main>
+
+</body>
 </html>

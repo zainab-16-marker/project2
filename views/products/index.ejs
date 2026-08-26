@@ -3,34 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products</title>
+
+  <title>Products | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Beauty Products</h1>
+  <!-- Admin Navbar -->
 
-  <a href="/products/new">Add New Product</a>
+  <nav class="admin-navbar">
 
-  <% products.forEach(product => { %>
+    <a href="/admin/dashboard" class="admin-logo">
+      ZOI
+    </a>
 
-    <div>
-      <h2>
-        <a href="/products/<%= product._id %>">
-          <%= product.name %>
-        </a>
-      </h2>
+    <div class="admin-nav-links">
 
-      <p>Price: <%= product.price %></p>
+      <a href="/admin/dashboard">
+        Dashboard
+      </a>
 
-      <p>Quantity: <%= product.quantity %></p>
+      <a href="/products">
+        Products
+      </a>
 
-      <p>Category: <%= product.category %></p>
+      <a href="/shippments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
     </div>
 
-    <hr>
+  </nav>
 
-  <% }) %>
+
+  <main class="admin-page">
+
+
+    <!-- Page Header -->
+
+    <div class="admin-page-header">
+
+      <div>
+
+        <h1>Products</h1>
+
+        <p>
+          Manage all beauty products
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Add Product -->
+
+    <div class="add-product-container">
+
+      <a
+        href="/products/new"
+        class="admin-button"
+      >
+        + Add New Product
+      </a>
+
+    </div>
+
+
+    <!-- Products -->
+
+    <% if (products.length === 0) { %>
+
+      <div class="empty-card">
+
+        <p>
+          No products found.
+        </p>
+
+      </div>
+
+    <% } else { %>
+
+      <div class="products-grid">
+
+        <% products.forEach(product => { %>
+
+          <div class="admin-product-card">
+
+
+            <!-- Product Information -->
+
+            <div class="product-card-header">
+
+              <h2>
+                <%= product.name %>
+              </h2>
+
+              <span class="product-category">
+                <%= product.category %>
+              </span>
+
+            </div>
+
+
+            <div class="admin-product-info">
+
+              <p>
+                <strong>Price:</strong>
+                <%= product.price %> BHD
+              </p>
+
+              <p>
+                <strong>Quantity:</strong>
+                <%= product.quantity %>
+              </p>
+
+            </div>
+
+
+            <!-- View -->
+
+            <a
+              href="/products/<%= product._id %>"
+              class="view-product-button"
+            >
+              View Product
+            </a>
+
+
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
+
+
+  </main>
 
 </body>
 </html>

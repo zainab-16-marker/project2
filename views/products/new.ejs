@@ -3,36 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Product</title>
+
+  <title>Add Product | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Add New Product</h1>
+  <!-- Admin Navbar -->
 
-  <form action="/products" method="POST">
+  <nav class="admin-navbar">
 
-    <label for="name">Product Name:</label>
-    <input type="text" id="name" name="name" required>
+    <a href="/admin/dashboard" class="admin-logo">
+      ZOI
+    </a>
 
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" required>
+    <div class="admin-nav-links">
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" required>
+      <a href="/admin/dashboard">
+        Dashboard
+      </a>
 
-    <label for="category">Category:</label>
-    <select id="category" name="category" required>
-      <option value="skincare">Skincare</option>
-      <option value="makeup">Makeup</option>
-      <option value="haircare">Haircare</option>
-      <option value="bodycare">Bodycare</option>
-      <option value="tools&accessories">Tools & Accessories</option>
-    </select>
+      <a href="/products">
+        Products
+      </a>
 
-    <button type="submit">Add Product</button>
+      <a href="/shippments">
+        Shipments
+      </a>
 
-  </form>
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main class="admin-form-page">
+
+    <a href="/products" class="back-link">
+      ← Back to Products
+    </a>
+
+
+    <section class="admin-form-card">
+
+      <div class="admin-form-header">
+
+        <h1>Add New Product</h1>
+
+        <p>Add a new product to your store</p>
+
+      </div>
+
+
+      <form
+        action="/products"
+        method="POST"
+        class="admin-form"
+      >
+
+        <!-- Product Name -->
+
+        <div class="form-group">
+
+          <label for="name">
+            Product Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+          >
+
+        </div>
+
+
+        <!-- Price -->
+
+        <div class="form-group">
+
+          <label for="price">
+            Price
+          </label>
+
+          <input
+            type="number"
+            id="price"
+            name="price"
+            required
+          >
+
+        </div>
+
+
+        <!-- Quantity -->
+
+        <div class="form-group">
+
+          <label for="quantity">
+            Quantity
+          </label>
+
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            required
+          >
+
+        </div>
+
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+          <label for="category">
+            Category
+          </label>
+
+          <select
+            id="category"
+            name="category"
+            required
+          >
+
+            <option value="skincare">
+              Skincare
+            </option>
+
+            <option value="makeup">
+              Makeup
+            </option>
+
+            <option value="haircare">
+              Haircare
+            </option>
+
+            <option value="bodycare">
+              Bodycare
+            </option>
+
+            <option value="tools&accessories">
+              Tools & Accessories
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="admin-button"
+        >
+          Add Product
+        </button>
+
+      </form>
+
+
+      <a
+        href="/products"
+        class="cancel-link"
+      >
+        Cancel
+      </a>
+
+    </section>
+
+  </main>
 
 </body>
 </html>

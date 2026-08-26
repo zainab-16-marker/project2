@@ -3,33 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= product.name %></title>
+
+  <title><%= product.name %> | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1><%= product.name %></h1>
+  <!-- Admin Navbar -->
 
-  <p>Price: <%= product.price %></p>
+  <nav class="admin-navbar">
 
-  <p>Quantity: <%= product.quantity %></p>
+    <a href="/admin/dashboard" class="admin-logo">
+      ZOI
+    </a>
 
-  <p>Category: <%= product.category %></p>
+    <div class="admin-nav-links">
 
-  <br>
+      <a href="/admin/dashboard">
+        Dashboard
+      </a>
 
-  <a href="/products/<%= product._id %>/edit">
-    <button>Edit Product</button>
-  </a>
+      <a href="/products">
+        Products
+      </a>
+
+      <a href="/shippments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
 
 
-  <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete Product</button>
-</form>
+  <main class="admin-form-page">
 
-  <br><br>
 
-  <a href="/products">Back to Products</a>
+    <!-- Back -->
+
+    <a
+      href="/products"
+      class="back-link"
+    >
+      ← Back to Products
+    </a>
+
+
+    <!-- Product Details -->
+
+    <section class="product-details-card">
+
+
+      <div class="product-details-header">
+
+        <div>
+
+          <p class="product-category">
+            <%= product.category %>
+          </p>
+
+          <h1>
+            <%= product.name %>
+          </h1>
+
+        </div>
+
+      </div>
+
+
+      <!-- Product Information -->
+
+      <div class="product-details-info">
+
+
+        <div class="product-detail-item">
+
+          <p>
+            Price
+          </p>
+
+          <h2>
+            <%= product.price %> BHD
+          </h2>
+
+        </div>
+
+
+        <div class="product-detail-item">
+
+          <p>
+            Quantity
+          </p>
+
+          <h2>
+            <%= product.quantity %>
+          </h2>
+
+        </div>
+
+
+        <div class="product-detail-item">
+
+          <p>
+            Category
+          </p>
+
+          <h2>
+            <%= product.category %>
+          </h2>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- Actions -->
+
+      <div class="product-detail-actions">
+
+
+        <!-- Edit -->
+
+        <a
+          href="/products/<%= product._id %>/edit"
+          class="edit-product-button"
+        >
+          Edit Product
+        </a>
+
+
+        <!-- Delete -->
+
+        <form
+          action="/products/<%= product._id %>?_method=DELETE"
+          method="POST"
+        >
+
+          <button
+            type="submit"
+            class="delete-product-button"
+          >
+            Delete Product
+          </button>
+
+        </form>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
 
 </body>
 </html>

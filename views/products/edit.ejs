@@ -3,65 +3,221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Product</title>
+
+  <title>Edit Product | Zoi</title>
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <h1>Edit Product</h1>
+  <!-- Admin Navbar -->
 
-  <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+  <nav class="admin-navbar">
 
-    <label for="name">Product Name:</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      value="<%= product.name %>"
-      required
+    <a href="/admin/dashboard" class="admin-logo">
+      ZOI
+    </a>
+
+    <div class="admin-nav-links">
+
+      <a href="/admin/dashboard">
+        Dashboard
+      </a>
+
+      <a href="/products">
+        Products
+      </a>
+
+      <a href="/shippments">
+        Shipments
+      </a>
+
+      <a href="/auth/sign-out">
+        Sign Out
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main class="admin-form-page">
+
+
+    <!-- Back -->
+
+    <a
+      href="/products/<%= product._id %>"
+      class="back-link"
     >
+      ← Back to Product
+    </a>
 
-    <br><br>
 
-    <label for="price">Price:</label>
-    <input
-      type="number"
-      id="price"
-      name="price"
-      value="<%= product.price %>"
-      required
-    >
+    <!-- Edit Product -->
 
-    <br><br>
+    <section class="admin-form-card">
 
-    <label for="quantity">Quantity:</label>
-    <input
-      type="number"
-      id="quantity"
-      name="quantity"
-      value="<%= product.quantity %>"
-      required
-    >
+      <div class="admin-form-header">
 
-    <br><br>
+        <h1>
+          Edit Product
+        </h1>
 
-    <label for="category">Category:</label>
+        <p>
+          Update product information
+        </p>
 
-    <select id="category" name="category">
-      <option value="skincare">Skincare</option>
-      <option value="makeup">Makeup</option>
-      <option value="haircare">Haircare</option>
-      <option value="bodycare">Bodycare</option>
-      <option value="tools&accessories">Tools & Accessories</option>
-    </select>
+      </div>
 
-    <br><br>
 
-    <button type="submit">Update Product</button>
+      <form
+        action="/products/<%= product._id %>?_method=PUT"
+        method="POST"
+        class="admin-form"
+      >
 
-  </form>
 
-  <a href="/products/<%= product._id %>">Cancel</a>
+        <!-- Product Name -->
+
+        <div class="form-group">
+
+          <label for="name">
+            Product Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="<%= product.name %>"
+            required
+          >
+
+        </div>
+
+
+        <!-- Price -->
+
+        <div class="form-group">
+
+          <label for="price">
+            Price
+          </label>
+
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value="<%= product.price %>"
+            min="0"
+            step="0.01"
+            required
+          >
+
+        </div>
+
+
+        <!-- Quantity -->
+
+        <div class="form-group">
+
+          <label for="quantity">
+            Quantity
+          </label>
+
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            value="<%= product.quantity %>"
+            min="0"
+            required
+          >
+
+        </div>
+
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+          <label for="category">
+            Category
+          </label>
+
+          <select
+            id="category"
+            name="category"
+            required
+          >
+
+            <option
+              value="skincare"
+              <%= product.category === 'skincare' ? 'selected' : '' %>
+            >
+              Skincare
+            </option>
+
+            <option
+              value="makeup"
+              <%= product.category === 'makeup' ? 'selected' : '' %>
+            >
+              Makeup
+            </option>
+
+            <option
+              value="haircare"
+              <%= product.category === 'haircare' ? 'selected' : '' %>
+            >
+              Haircare
+            </option>
+
+            <option
+              value="bodycare"
+              <%= product.category === 'bodycare' ? 'selected' : '' %>
+            >
+              Bodycare
+            </option>
+
+            <option
+              value="tools&accessories"
+              <%= product.category === 'tools&accessories' ? 'selected' : '' %>
+            >
+              Tools & Accessories
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- Update -->
+
+        <button
+          type="submit"
+          class="admin-button"
+        >
+          Update Product
+        </button>
+
+
+      </form>
+
+
+      <a
+        href="/products/<%= product._id %>"
+        class="cancel-link"
+      >
+        Cancel
+      </a>
+
+
+    </section>
+
+
+  </main>
 
 </body>
 </html>
