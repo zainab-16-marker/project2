@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +14,19 @@
 
   <!-- Admin Navbar -->
 
-  <nav class="admin-navbar">
+  <nav class="navbar">
 
-    <div class="admin-navbar-logo">
-      ZOI
-    </div>
+    <a href="/admin/dashboard" class="navbar-logo">
 
-    <div class="admin-navbar-links">
+      <img
+        src="/images/logo.png"
+        alt="Zoi"
+      >
+
+    </a>
+
+
+    <div class="navbar-actions">
 
       <a href="/admin/dashboard">
         Dashboard
@@ -33,7 +40,10 @@
         Shipments
       </a>
 
-      <a href="/auth/sign-out">
+      <a
+        href="/auth/sign-out"
+        class="admin-signout"
+      >
         Sign Out
       </a>
 
@@ -182,3 +192,4 @@
 
 </body>
 </html>
+```

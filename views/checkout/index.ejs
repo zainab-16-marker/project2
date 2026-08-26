@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,9 +55,88 @@
 
             <div class="checkout-product-card">
 
+
+              <!-- Product Image -->
+
               <div class="checkout-product-image">
-                <p>Product Image</p>
+
+                <% if (item.category === 'tools&accessories' && item.name === 'product three') { %>
+
+                  <img
+                    src="/imges-acss/product1.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'tools&accessories' && item.name === 'second product') { %>
+
+                  <img
+                    src="/imges-acss/product3.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'tools&accessories' && item.name === 'product one') { %>
+
+                  <img
+                    src="/imges-acss/product2.png"
+                    alt="<%= item.name %>"
+                  >
+
+
+                <% } else if (item.category === 'haircare' && item.name === 'product one') { %>
+
+                  <img
+                    src="/imges-acss/hair2.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'haircare' && item.name === 'product two') { %>
+
+                  <img
+                    src="/imges-acss/hair1.png"
+                    alt="<%= item.name %>"
+                  >
+
+
+                <% } else if (item.category === 'makeup' && item.name === 'first') { %>
+
+                  <img
+                    src="/imges-acss/makeup1.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'makeup' && item.name === 'second') { %>
+
+                  <img
+                    src="/imges-acss/makeup2.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'makeup' && item.name === 'third') { %>
+
+                  <img
+                    src="/imges-acss/makeup3.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } else if (item.category === 'makeup' && item.name === 'fourth') { %>
+
+                  <img
+                    src="/imges-acss/makeup4.png"
+                    alt="<%= item.name %>"
+                  >
+
+
+                <% } else if (item.category === 'skincare' && item.name === 'fifth the eye patches') { %>
+
+                  <img
+                    src="/imges-acss/skin.png"
+                    alt="<%= item.name %>"
+                  >
+
+                <% } %>
+
               </div>
+
 
               <div class="checkout-product-info">
 

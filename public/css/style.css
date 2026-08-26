@@ -86,11 +86,17 @@ body {
    ========================= */
 
 .product-image {
-  height: 240px;
-  background-color: #EDE9E3;
+  height: 220px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .product-image p {
@@ -4496,4 +4502,37 @@ body {
     right: 20px;
   }
 
+}
+.product-details-card .product-image {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-details-card .product-image img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 280px;
+  object-fit: contain;
+}
+
+.product-details-image {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  margin-bottom: 30px;
+}
+
+.product-details-image img {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  display: block;
 }

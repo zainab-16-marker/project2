@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,9 +93,99 @@
 
       <div class="products-grid">
 
-        <% products.forEach(product => { %>
+        <% products.forEach((product, index) => { %>
 
           <div class="admin-product-card">
+
+
+            <!-- Product Image -->
+
+            <div class="product-image">
+
+              <!-- Tools & Accessories -->
+
+              <% if (product.category === 'tools&accessories' && product.name === 'product three') { %>
+
+                <img
+                  src="/imges-acss/product1.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'tools&accessories' && product.name === 'second product') { %>
+
+                <img
+                  src="/imges-acss/product3.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'tools&accessories' && product.name === 'product one') { %>
+
+                <img
+                  src="/imges-acss/product2.png"
+                  alt="<%= product.name %>"
+                >
+
+
+              <!-- Haircare -->
+
+              <% } else if (product.category === 'haircare' && product.name === 'product one') { %>
+
+                <img
+                  src="/imges-acss/hair2.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'haircare' && product.name === 'product two') { %>
+
+                <img
+                  src="/imges-acss/hair1.png"
+                  alt="<%= product.name %>"
+                >
+
+
+              <!-- Makeup -->
+
+              <% } else if (product.category === 'makeup' && product.name === 'first') { %>
+
+                <img
+                  src="/imges-acss/makeup1.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'makeup' && product.name === 'second') { %>
+
+                <img
+                  src="/imges-acss/makeup2.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'makeup' && product.name === 'third') { %>
+
+                <img
+                  src="/imges-acss/makeup3.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } else if (product.category === 'makeup' && product.name === 'fourth') { %>
+
+                <img
+                  src="/imges-acss/makeup4.png"
+                  alt="<%= product.name %>"
+                >
+
+
+              <!-- Skin -->
+
+              <% } else if (product.category === 'skincare' && product.name === 'fifth the eye patches') { %>
+
+                <img
+                  src="/imges-acss/skin.png"
+                  alt="<%= product.name %>"
+                >
+
+              <% } %>
+
+            </div>
 
 
             <!-- Product Information -->

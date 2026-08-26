@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +13,6 @@
 <body>
 
   <%- include('../partials/_navCustomer.ejs') %>
-
-
-  <!-- Shop -->
 
   <main class="shop-page">
 
@@ -31,19 +29,36 @@
 
         <div class="products-grid">
 
-          <% bestSellers.forEach(product => { %>
+          <% bestSellers.forEach((product, index) => { %>
 
             <div class="product-card">
 
               <div class="product-image">
 
-                <img
-                  src="<%= product.image %>"
-                  alt="<%= product.name %>"
-                >
+                <% if (index === 0) { %>
+
+                  <img
+                    src="/imges-acss/product1.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 1) { %>
+
+                  <img
+                    src="/imges-acss/product3.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 2) { %>
+
+                  <img
+                    src="/imges-acss/product2.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } %>
 
               </div>
-
 
               <div class="product-info">
 
@@ -58,9 +73,6 @@
                 <p class="product-price">
                   <%= product.price %> BHD
                 </p>
-
-
-                <!-- Add to Cart -->
 
                 <form
                   action="/cart/add/<%= product._id %>"
@@ -82,9 +94,6 @@
                   </button>
 
                 </form>
-
-
-                <!-- View Product -->
 
                 <a
                   href="/shop/<%= product._id %>"
@@ -144,19 +153,40 @@
 
         <div class="products-grid">
 
-          <% products.forEach(product => { %>
+          <!-- Accessories -->
+
+          <% const accessories = products.filter(product => product.category === 'tools&accessories'); %>
+
+          <% accessories.forEach((product, index) => { %>
 
             <div class="product-card">
 
               <div class="product-image">
 
-                <img
-                  src="<%= product.image %>"
-                  alt="<%= product.name %>"
-                >
+                <% if (index === 0) { %>
+
+                  <img
+                    src="/imges-acss/product1.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 1) { %>
+
+                  <img
+                    src="/imges-acss/product3.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 2) { %>
+
+                  <img
+                    src="/imges-acss/product2.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } %>
 
               </div>
-
 
               <div class="product-info">
 
@@ -171,9 +201,6 @@
                 <p class="product-price">
                   <%= product.price %> BHD
                 </p>
-
-
-                <!-- Add to Cart -->
 
                 <form
                   action="/cart/add/<%= product._id %>"
@@ -196,8 +223,180 @@
 
                 </form>
 
+                <a
+                  href="/shop/<%= product._id %>"
+                  class="view-button"
+                >
+                  View Product
+                </a>
 
-                <!-- View Product -->
+              </div>
+
+            </div>
+
+          <% }) %>
+
+
+          <!-- Haircare -->
+
+          <% const haircare = products.filter(product => product.category === 'haircare'); %>
+
+          <% haircare.forEach((product, index) => { %>
+
+            <div class="product-card">
+
+              <div class="product-image">
+
+                <% if (index === 0) { %>
+
+                  <img
+                    src="/imges-acss/hair2.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 1) { %>
+
+                  <img
+                    src="/imges-acss/hair1.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } %>
+
+              </div>
+
+              <div class="product-info">
+
+                <p class="product-category">
+                  <%= product.category %>
+                </p>
+
+                <h3>
+                  <%= product.name %>
+                </h3>
+
+                <p class="product-price">
+                  <%= product.price %> BHD
+                </p>
+
+                <form
+                  action="/cart/add/<%= product._id %>"
+                  method="POST"
+                  class="add-cart-form"
+                >
+
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                  >
+
+                  <button
+                    type="submit"
+                    class="cart-button"
+                  >
+                    🛒 Add to Cart
+                  </button>
+
+                </form>
+
+                <a
+                  href="/shop/<%= product._id %>"
+                  class="view-button"
+                >
+                  View Product
+                </a>
+
+              </div>
+
+            </div>
+
+          <% }) %>
+
+
+          <!-- Makeup -->
+
+          <% const makeup = products.filter(product => product.category === 'makeup'); %>
+
+          <% makeup.forEach((product, index) => { %>
+
+            <div class="product-card">
+
+              <div class="product-image">
+
+                <% if (index === 0) { %>
+
+                  <img
+                    src="/imges-acss/makeup1.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 1) { %>
+
+                  <img
+                    src="/imges-acss/makeup2.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 2) { %>
+
+                  <img
+                    src="/imges-acss/makeup3.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 3) { %>
+
+                  <img
+                    src="/imges-acss/makeup4.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } else if (index === 4) { %>
+
+                  <img
+                    src="/imges-acss/skin.png"
+                    alt="<%= product.name %>"
+                  >
+
+                <% } %>
+
+              </div>
+
+              <div class="product-info">
+
+                <p class="product-category">
+                  <%= product.category %>
+                </p>
+
+                <h3>
+                  <%= product.name %>
+                </h3>
+
+                <p class="product-price">
+                  <%= product.price %> BHD
+                </p>
+
+                <form
+                  action="/cart/add/<%= product._id %>"
+                  method="POST"
+                  class="add-cart-form"
+                >
+
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                  >
+
+                  <button
+                    type="submit"
+                    class="cart-button"
+                  >
+                    🛒 Add to Cart
+                  </button>
+
+                </form>
 
                 <a
                   href="/shop/<%= product._id %>"
@@ -222,3 +421,4 @@
 
 </body>
 </html>
+```
