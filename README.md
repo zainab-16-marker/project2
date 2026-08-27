@@ -1,6 +1,8 @@
 # ZOI
 
-![ZOI](./imges/screenshot.png)
+<p align="center">
+  <img src="./views/images/logo.png" alt="ZOI Logo" width="200">
+</p>
 
 A full-stack beauty store management and shopping application built with **Node.js, Express, MongoDB, and EJS**.
 
@@ -8,11 +10,19 @@ ZOI is a beauty store where customers can browse and purchase products, manage t
 
 ---
 
+## Screenshot
 
+<div align="center">
 
-![ZOI](./images/logo.png)
+<img src="./views/images/screenshot1.jpg" width="300">
+<img src="./views/images/screenshot2.jpg" width="300">
 
----
+<br>
+
+<img src="./views/images/screenshot3.jpg" width="300">
+<img src="./views/images/screenshot4.jpg" width="300">
+
+</div>
 
 ## Project Description
 
