@@ -1,21 +1,22 @@
+# ZOI
 
-#  Beauty Store Management System
+![ZOI](./imges/screenshot.png)
 
 A full-stack beauty store management and shopping application built with **Node.js, Express, MongoDB, and EJS**.
 
-The application allows a store owner to manage products and shipments through an admin dashboard, while customers can browse products, manage their cart, place orders, and track their shipments.
+ZOI is a beauty store where customers can browse and purchase products, manage their cart, and track shipments, while admins can manage products and shipments through an admin dashboard.
 
 ---
 
-## Screenshot
 
-![Beauty Store Management System]
+
+![ZOI](./images/logo.png)
 
 ---
 
-##  Project Description
+## Project Description
 
-The **Beauty Store Management System** is a full-stack web application designed for a beauty store.
+**ZOI** is a full-stack web application designed for a beauty store.
 
 The application has two types of users: **Admin** and **Customer**.
 
@@ -29,7 +30,17 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
-##  User Stories
+## Background
+
+I built **ZOI** as a full-stack web application to practice developing a complete beauty store system using **Node.js, Express, MongoDB, and EJS**.
+
+The idea was to create a simple and user-friendly beauty shopping experience while also providing an Admin with the tools needed to manage products and shipments.
+
+This project allowed me to apply concepts such as **CRUD operations, authentication, authorization, database relationships, sessions, and server-side rendering** in one complete application.
+
+---
+
+## User Stories
 
 ### Authentication
 
@@ -64,17 +75,18 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
-##  Features
+## Features
 
-###  Authentication & Authorization
+### Authentication & Authorization
 
 - User registration
 - User login
 - Session-based authentication
 - Logout
 - Protected admin routes
+- Role-based authorization
 
-###  Admin Features
+### Admin Features
 
 - Admin dashboard
 - View all products
@@ -87,8 +99,7 @@ The application uses **session-based authentication and role-based authorization
 - Delete shipments
 - Update shipment information
 
-
-###  Customer Features
+### Customer Features
 
 - Browse available products
 - View product details
@@ -102,16 +113,67 @@ The application uses **session-based authentication and role-based authorization
 
 ---
 
+## Technologies Used
 
-##  ERD
+- **Node.js** - JavaScript runtime environment
+- **Express.js** - Web application framework
+- **MongoDB** - Database
+- **Mongoose** - MongoDB object modeling
+- **EJS** - Server-side templating engine
+- **JavaScript** - Application functionality
+- **HTML** - Page structure
+- **CSS** - Styling and layout
+- **Express Session** - Session-based authentication
+- **Method Override** - Support for PUT and DELETE HTTP methods
+- **Morgan** - HTTP request logging
+- **Git & GitHub** - Version control and project repository
 
-![Beauty Store Management System ERD](./imges/erd.jpg)
+---
 
+## Getting Started
 
+### Deployed App
 
-##  Wire Frame
+[View the deployed ZOI App](DEPLOYED_APP_LINK)
 
+### Planning Materials
 
-[View Wire Frame for the system](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
+- [View the ERD](https://github.com/zainab-16-marker/project2/blob/master/imges/erd.jpg)
+- [View the Wire Frame](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
 
+---
 
+## ERD
+
+[ZOI ERD](https://github.com/zainab-16-marker/project2/blob/master/imges/erd.jpg)
+
+[View ERD Image](https://github.com/zainab-16-marker/project2/raw/master/imges/erd.jpg)
+
+---
+
+## Wire Frame
+
+[View Wire Frame for ZOI](https://excalidraw.com/#json=J9HWwXUCUyiYFJvlQ5pey,dTf152lkRGVJnJ4RgPYgEw)
+
+---
+
+## Attributions
+
+This project uses open-source libraries and technologies including **Node.js, Express.js, MongoDB, Mongoose, EJS, Express Session, Method Override, and Morgan**.
+
+No external assets requiring attribution were used in the application.
+
+---
+
+## Next Steps
+
+Future enhancements for **ZOI** may include:
+
+- Add online payment functionality.
+- Add product search and filtering.
+- Add customer profile management.
+- Add email notifications for order and shipment updates.
+- Add order history for customers.
+- Add more detailed analytics to the Admin dashboard.
+- Improve responsive design for mobile devices.
+- Add product reviews and ratings.
