@@ -1,425 +1,137 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Shop | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
   <%- include('../partials/_navCustomer.ejs') %>
-
   <main class="shop-page">
-
     <h1>Beauty Products</h1>
-
-
-    <!-- Best Sellers -->
-
     <% if (bestSellers.length > 0) { %>
-
       <section class="shop-section">
-
         <h2>Best Sellers</h2>
-
         <div class="products-grid">
-
           <% bestSellers.forEach((product, index) => { %>
-
             <div class="product-card">
-
               <div class="product-image">
-
                 <% if (index === 0) { %>
-
-                  <img
-                    src="/imges-acss/product1.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product1.png" alt="<%= product.name %>">
                 <% } else if (index === 1) { %>
-
-                  <img
-                    src="/imges-acss/product3.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product3.png" alt="<%= product.name %>">
                 <% } else if (index === 2) { %>
-
-                  <img
-                    src="/imges-acss/product2.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product2.png" alt="<%= product.name %>">
                 <% } %>
-
               </div>
-
               <div class="product-info">
-
-                <p class="product-category">
-                  <%= product.category %>
-                </p>
-
-                <h3>
-                  <%= product.name %>
-                </h3>
-
-                <p class="product-price">
-                  <%= product.price %> BHD
-                </p>
-
-                <form
-                  action="/cart/add/<%= product._id %>"
-                  method="POST"
-                  class="add-cart-form"
-                >
-
-                  <input
-                    type="hidden"
-                    name="quantity"
-                    value="1"
-                  >
-
-                  <button
-                    type="submit"
-                    class="cart-button"
-                  >
-                    🛒 Add to Cart
-                  </button>
-
+                <p class="product-category"><%= product.category %></p>
+                <h3><%= product.name %></h3>
+                <p class="product-price"><%= product.price %> BHD</p>
+                <form action="/cart/add/<%= product._id %>" method="POST" class="add-cart-form">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="cart-button">🛒 Add to Cart</button>
                 </form>
-
-                <a
-                  href="/shop/<%= product._id %>"
-                  class="view-button"
-                >
-                  View Product
-                </a>
-
+                <a href="/shop/<%= product._id %>" class="view-button">View Product</a>
               </div>
-
             </div>
-
           <% }) %>
-
         </div>
-
       </section>
-
     <% } %>
-
-
-    <!-- Categories -->
-
     <section class="shop-section">
-
       <h2>Categories</h2>
-
       <div class="categories">
-
         <% categories.forEach(category => { %>
-
-          <a
-            href="/shop/category/<%= category %>"
-            class="category-button"
-          >
-            <%= category %>
-          </a>
-
+          <a href="/shop/category/<%= category %>" class="category-button"><%= category %></a>
         <% }) %>
-
       </div>
-
     </section>
-
-
-    <!-- All Products -->
-
     <section class="shop-section">
-
       <h2>All Products</h2>
-
       <% if (products.length === 0) { %>
-
         <p>No products found in this category.</p>
-
       <% } else { %>
-
         <div class="products-grid">
-
-          <!-- Accessories -->
-
           <% const accessories = products.filter(product => product.category === 'tools&accessories'); %>
-
           <% accessories.forEach((product, index) => { %>
-
             <div class="product-card">
-
               <div class="product-image">
-
                 <% if (index === 0) { %>
-
-                  <img
-                    src="/imges-acss/product1.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product1.png" alt="<%= product.name %>">
                 <% } else if (index === 1) { %>
-
-                  <img
-                    src="/imges-acss/product3.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product3.png" alt="<%= product.name %>">
                 <% } else if (index === 2) { %>
-
-                  <img
-                    src="/imges-acss/product2.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/product2.png" alt="<%= product.name %>">
                 <% } %>
-
               </div>
-
               <div class="product-info">
-
-                <p class="product-category">
-                  <%= product.category %>
-                </p>
-
-                <h3>
-                  <%= product.name %>
-                </h3>
-
-                <p class="product-price">
-                  <%= product.price %> BHD
-                </p>
-
-                <form
-                  action="/cart/add/<%= product._id %>"
-                  method="POST"
-                  class="add-cart-form"
-                >
-
-                  <input
-                    type="hidden"
-                    name="quantity"
-                    value="1"
-                  >
-
-                  <button
-                    type="submit"
-                    class="cart-button"
-                  >
-                    🛒 Add to Cart
-                  </button>
-
+                <p class="product-category"><%= product.category %></p>
+                <h3><%= product.name %></h3>
+                <p class="product-price"><%= product.price %> BHD</p>
+                <form action="/cart/add/<%= product._id %>" method="POST" class="add-cart-form">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="cart-button">🛒 Add to Cart</button>
                 </form>
-
-                <a
-                  href="/shop/<%= product._id %>"
-                  class="view-button"
-                >
-                  View Product
-                </a>
-
+                <a href="/shop/<%= product._id %>" class="view-button">View Product</a>
               </div>
-
             </div>
-
           <% }) %>
-
-
-          <!-- Haircare -->
-
           <% const haircare = products.filter(product => product.category === 'haircare'); %>
-
           <% haircare.forEach((product, index) => { %>
-
             <div class="product-card">
-
               <div class="product-image">
-
                 <% if (index === 0) { %>
-
-                  <img
-                    src="/imges-acss/hair2.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/hair2.png" alt="<%= product.name %>">
                 <% } else if (index === 1) { %>
-
-                  <img
-                    src="/imges-acss/hair1.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/hair1.png" alt="<%= product.name %>">
                 <% } %>
-
               </div>
-
               <div class="product-info">
-
-                <p class="product-category">
-                  <%= product.category %>
-                </p>
-
-                <h3>
-                  <%= product.name %>
-                </h3>
-
-                <p class="product-price">
-                  <%= product.price %> BHD
-                </p>
-
-                <form
-                  action="/cart/add/<%= product._id %>"
-                  method="POST"
-                  class="add-cart-form"
-                >
-
-                  <input
-                    type="hidden"
-                    name="quantity"
-                    value="1"
-                  >
-
-                  <button
-                    type="submit"
-                    class="cart-button"
-                  >
-                    🛒 Add to Cart
-                  </button>
-
+                <p class="product-category"><%= product.category %></p>
+                <h3><%= product.name %></h3>
+                <p class="product-price"><%= product.price %> BHD</p>
+                <form action="/cart/add/<%= product._id %>" method="POST" class="add-cart-form">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="cart-button">🛒 Add to Cart</button>
                 </form>
-
-                <a
-                  href="/shop/<%= product._id %>"
-                  class="view-button"
-                >
-                  View Product
-                </a>
-
+                <a href="/shop/<%= product._id %>" class="view-button">View Product</a>
               </div>
-
             </div>
-
           <% }) %>
-
-
-          <!-- Makeup -->
-
           <% const makeup = products.filter(product => product.category === 'makeup'); %>
-
           <% makeup.forEach((product, index) => { %>
-
             <div class="product-card">
-
               <div class="product-image">
-
                 <% if (index === 0) { %>
-
-                  <img
-                    src="/imges-acss/makeup1.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/makeup1.png" alt="<%= product.name %>">
                 <% } else if (index === 1) { %>
-
-                  <img
-                    src="/imges-acss/makeup2.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/makeup2.png" alt="<%= product.name %>">
                 <% } else if (index === 2) { %>
-
-                  <img
-                    src="/imges-acss/makeup3.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/makeup3.png" alt="<%= product.name %>">
                 <% } else if (index === 3) { %>
-
-                  <img
-                    src="/imges-acss/makeup4.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/makeup4.png" alt="<%= product.name %>">
                 <% } else if (index === 4) { %>
-
-                  <img
-                    src="/imges-acss/skin.png"
-                    alt="<%= product.name %>"
-                  >
-
+                  <img src="/imges-acss/skin.png" alt="<%= product.name %>">
                 <% } %>
-
               </div>
-
               <div class="product-info">
-
-                <p class="product-category">
-                  <%= product.category %>
-                </p>
-
-                <h3>
-                  <%= product.name %>
-                </h3>
-
-                <p class="product-price">
-                  <%= product.price %> BHD
-                </p>
-
-                <form
-                  action="/cart/add/<%= product._id %>"
-                  method="POST"
-                  class="add-cart-form"
-                >
-
-                  <input
-                    type="hidden"
-                    name="quantity"
-                    value="1"
-                  >
-
-                  <button
-                    type="submit"
-                    class="cart-button"
-                  >
-                    🛒 Add to Cart
-                  </button>
-
+                <p class="product-category"><%= product.category %></p>
+                <h3><%= product.name %></h3>
+                <p class="product-price"><%= product.price %> BHD</p>
+                <form action="/cart/add/<%= product._id %>" method="POST" class="add-cart-form">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="cart-button">🛒 Add to Cart</button>
                 </form>
-
-                <a
-                  href="/shop/<%= product._id %>"
-                  class="view-button"
-                >
-                  View Product
-                </a>
-
+                <a href="/shop/<%= product._id %>" class="view-button">View Product</a>
               </div>
-
             </div>
-
           <% }) %>
-
         </div>
-
       <% } %>
-
     </section>
-
   </main>
-
 </body>
 <%- include('../partials/_footer.ejs') %>
 </html>
-

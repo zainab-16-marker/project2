@@ -1,190 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Checkout | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
   <%- include('../partials/_navCustomer.ejs') %>
-
-
-  <!-- Checkout -->
-
   <main class="checkout-page">
-
     <h1>Checkout</h1>
-
-
     <% if (cart.length === 0) { %>
-
       <section class="empty-checkout">
-
         <h2>Your Cart is Empty</h2>
-
-        <p>
-          Add some products before checking out.
-        </p>
-
-        <a href="/shop" class="continue-shopping">
-          Continue Shopping
-        </a>
-
+        <p>Add some products before checking out.</p>
+        <a href="/shop" class="continue-shopping">Continue Shopping</a>
       </section>
-
-
     <% } else { %>
-
-
       <div class="checkout-layout">
-
-
-        <!-- Order Summary -->
-
         <section class="checkout-products">
-
           <h2>Your Products</h2>
-
           <% cart.forEach(item => { %>
-
             <div class="checkout-product-card">
-
-
-              <!-- Product Information -->
-
               <div class="checkout-product-info">
-
-                <h3>
-                  <%= item.name %>
-                </h3>
-
-                <p>
-                  Price:
-                  <%= item.price %> BHD
-                </p>
-
-                <p>
-                  Quantity:
-                  <%= item.quantity %>
-                </p>
-
-                <p class="checkout-item-total">
-                  <%= (item.price * item.quantity).toFixed(2) %> BHD
-                </p>
-
+                <h3><%= item.name %></h3>
+                <p>Price: <%= item.price %> BHD</p>
+                <p>Quantity: <%= item.quantity %></p>
+                <p class="checkout-item-total"><%= (item.price * item.quantity).toFixed(2) %> BHD</p>
               </div>
-
             </div>
-
           <% }) %>
-
-
           <div class="checkout-total">
-
             <span>Total</span>
-
-            <strong>
-              <%= cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2) %>
-              BHD
-            </strong>
-
+            <strong><%= cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2) %> BHD</strong>
           </div>
-
         </section>
-
-
-        <!-- Shipping Information -->
-
         <section class="checkout-form-card">
-
           <h2>Shipping Information</h2>
-
           <form action="/checkout" method="POST">
-
-
             <div class="form-group">
-
-              <label for="shippmentAdress">
-                Shipping Address
-              </label>
-
-              <input
-                type="text"
-                name="shippmentAdress"
-                id="shippmentAdress"
-                placeholder="Enter your shipping address"
-                required
-              >
-
+              <label for="shippmentAdress">Shipping Address</label>
+              <input type="text" name="shippmentAdress" id="shippmentAdress" placeholder="Enter your shipping address" required>
             </div>
-
-
             <div class="form-group">
-
-              <label for="paymentMethod">
-                Payment Method
-              </label>
-
-              <select
-                id="paymentMethod"
-                name="paymentMethod"
-                required
-              >
-
-                <option value="">
-                  Select payment method
-                </option>
-
-                <option value="Apple Pay">
-                  Apple Pay
-                </option>
-
-                <option value="Cash on delivery">
-                  Cash on delivery
-                </option>
-
-                <option value="Paypal">
-                  Paypal
-                </option>
-
-                <option value="Benefit Pay">
-                  Benefit Pay
-                </option>
-
-                <option value="Credit Card">
-                  Credit Card
-                </option>
-
+              <label for="paymentMethod">Payment Method</label>
+              <select id="paymentMethod" name="paymentMethod" required>
+                <option value="">Select payment method</option>
+                <option value="Apple Pay">Apple Pay</option>
+                <option value="Cash on delivery">Cash on delivery</option>
+                <option value="Paypal">Paypal</option>
+                <option value="Benefit Pay">Benefit Pay</option>
+                <option value="Credit Card">Credit Card</option>
               </select>
-
             </div>
-
-
-            <button
-              type="submit"
-              class="place-order-button"
-            >
-              Place Order
-            </button>
-
-
+            <button type="submit" class="place-order-button">Place Order</button>
           </form>
-
-
         </section>
-
       </div>
-
     <% } %>
-
   </main>
-
 </body>
 </html>
-

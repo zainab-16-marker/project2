@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-/* eslint-disable no-console */
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
@@ -11,28 +9,27 @@ const signup = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    // verify if the username alrady exists
+   
     const userInDatabase = await User.findOne({
       username: req.body.username,
     });
 
-    // if the user exists send error msg
+   
     if (userInDatabase) {
       return res.send('Invalid input');
     }
 
-    // else send error msg
+    
     if (req.body.password !== req.body.confirmPassword) {
       return res.send('Invalid input');
     }
 
-    // Encrypt the password
+    
     const hashedPassword = bcrypt.hashSync(
       req.body.password,
       SALT_ROUDS
     );
 
-    // if password matches create the new user
     const user = await User.create({
       username: req.body.username,
       password: hashedPassword,
@@ -44,15 +41,12 @@ const register = async (req, res) => {
       _id: user._id,
     };
 
-    // redirect to shop or admin dashboard
     req.session.save(() => {
 
-      // Admin
       if (user.username === 'zoiadmin') {
         return res.redirect('/admin/dashboard');
       }
 
-      // Customer
       res.redirect('/shop');
 
     });
@@ -71,12 +65,10 @@ const login = async (req, res) => {
     username: req.body.username,
   });
 
-  // only allow users that exist to login
   if (!userInDatabase) {
     return res.send('Invalid credentials');
   }
 
-  // make sure the user's password matches
   if (!bcrypt.compareSync(
     req.body.password,
     userInDatabase.password
@@ -84,8 +76,6 @@ const login = async (req, res) => {
     return res.send('Invalid credentials');
   }
 
-  // There is a user AND they had the correct password.
-  // Time to make a session!
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
@@ -93,12 +83,10 @@ const login = async (req, res) => {
 
   req.session.save(() => {
 
-    // Admin
     if (userInDatabase.username === 'zoiadmin') {
       return res.redirect('/admin/dashboard');
     }
 
-    // Customer
     res.redirect('/shop');
 
   });

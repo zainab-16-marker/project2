@@ -3,122 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>My Shipments | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
   <%- include('../partials/_navCustomer.ejs') %>
-
-
-  <!-- Shipments -->
-
   <main class="shipments-page">
-
     <h1>My Shipments</h1>
-
-
     <% if (shippments.length === 0) { %>
-
       <div class="empty-shipments">
-
         <h2>No Shipments Yet</h2>
-
-        <p>
-          You don't have any shipments yet.
-        </p>
-
-        <a href="/shop" class="continue-shopping">
-          Continue Shopping
-        </a>
-
+        <p>You don't have any shipments yet.</p>
+        <a href="/shop" class="continue-shopping">Continue Shopping</a>
       </div>
-
     <% } else { %>
-
       <div class="shipments-grid">
-
         <% shippments.forEach(shipment => { %>
-
           <div class="shipment-card">
-
             <div class="shipment-card-header">
-
-              <h2>
-                Shipment
-              </h2>
-
-              <span class="shipment-status <%= shipment.status %>">
-                <%= shipment.status %>
-              </span>
-
+              <h2>Shipment</h2>
+              <span class="shipment-status <%= shipment.status %>"><%= shipment.status %></span>
             </div>
-
-
             <div class="shipment-info">
-
-              <p>
-                <strong>Shipment Date:</strong>
-                <%= new Date(shipment.shippmentDate).toLocaleDateString() %>
-              </p>
-
-              <p>
-                <strong>Payment:</strong>
-                <%= shipment.paymentMethod %>
-              </p>
-
-              <p>
-                <strong>Address:</strong>
-                <%= shipment.shippmentAdress %>
-              </p>
-
+              <p><strong>Shipment Date:</strong> <%= new Date(shipment.shippmentDate).toLocaleDateString() %></p>
+              <p><strong>Payment:</strong> <%= shipment.paymentMethod %></p>
+              <p><strong>Address:</strong> <%= shipment.shippmentAdress %></p>
             </div>
-
-
             <div class="shipment-products">
-
               <h3>Products</h3>
-
               <% shipment.products.forEach(product => { %>
-
-                <p>
-                  <%= product.name %>
-                </p>
-
+                <p><%= product.name %></p>
               <% }) %>
-
             </div>
-
-
-            <a
-              href="/my-shipments/<%= shipment._id %>"
-              class="track-button"
-            >
-              Track Shipment
-            </a>
-
+            <a href="/my-shipments/<%= shipment._id %>" class="track-button">Track Shipment</a>
           </div>
-
         <% }) %>
-
       </div>
-
     <% } %>
-
-
     <div class="continue-shopping-container">
-
-      <a href="/shop" class="continue-shopping">
-        Continue Shopping
-      </a>
-
+      <a href="/shop" class="continue-shopping">Continue Shopping</a>
     </div>
-
   </main>
-
 </body>
 <%- include('../partials/_footer.ejs') %>
 </html>

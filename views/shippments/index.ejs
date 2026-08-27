@@ -1,195 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="/css/style.css">
-
   <title>Shipments | Zoi</title>
 </head>
-
 <body>
-
-  <!-- Admin Navbar -->
-
   <nav class="navbar">
-
     <a href="/admin/dashboard" class="navbar-logo">
-
-      <img
-        src="/images/logo.png"
-        alt="Zoi"
-      >
-
+      <img src="/images/logo.png" alt="Zoi">
     </a>
-
-
     <div class="navbar-actions">
-
-      <a href="/admin/dashboard">
-        Dashboard
-      </a>
-
-      <a href="/products">
-        Products
-      </a>
-
-      <a href="/shippments">
-        Shipments
-      </a>
-
-      <a
-        href="/auth/sign-out"
-        class="admin-signout"
-      >
-        Sign Out
-      </a>
-
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/products">Products</a>
+      <a href="/shippments">Shipments</a>
+      <a href="/auth/sign-out" class="admin-signout">Sign Out</a>
     </div>
-
   </nav>
-
-
-  <!-- Shipments Page -->
-
   <main class="admin-page">
-
     <div class="admin-page-header">
-
       <div>
-
         <h1>Shipments</h1>
-
-        <p>
-          Manage all customer shipments
-        </p>
-
+        <p>Manage all customer shipments</p>
       </div>
-
     </div>
-
-
-    <!-- Add New Shipment -->
-
     <div class="add-shipment-container">
-
-      <a
-        href="/shippments/new"
-        class="admin-button"
-      >
-        + Add New Shipment
-      </a>
-
+      <a href="/shippments/new" class="admin-button">+ Add New Shipment</a>
     </div>
-
-
-    <!-- Shipments -->
-
     <% if (shippments.length === 0) { %>
-
       <div class="empty-card">
-
-        <p>
-          No shipments found.
-        </p>
-
+        <p>No shipments found.</p>
       </div>
-
     <% } else { %>
-
       <div class="shipments-grid">
-
         <% shippments.forEach(shippment => { %>
-
           <div class="shipment-card">
-
-
-            <!-- Card Header -->
-
             <div class="shipment-card-header">
-
-              <h2>
-                Shipment
-              </h2>
-
-              <span class="status <%= shippment.status %>">
-                <%= shippment.status %>
-              </span>
-
+              <h2>Shipment</h2>
+              <span class="status <%= shippment.status %>"><%= shippment.status %></span>
             </div>
-
-
-            <!-- Shipment Information -->
-
             <div class="shipment-info">
-
-              <p>
-                <strong>Customer:</strong>
-                <%= shippment.user.username %>
-              </p>
-
-              <p>
-                <strong>Shipping Address:</strong>
-                <%= shippment.shippmentAdress %>
-              </p>
-
-              <p>
-                <strong>Shipment Date:</strong>
-                <%= shippment.shippmentDate.toDateString() %>
-              </p>
-
+              <p><strong>Customer:</strong> <%= shippment.user.username %></p>
+              <p><strong>Shipping Address:</strong> <%= shippment.shippmentAdress %></p>
+              <p><strong>Shipment Date:</strong> <%= shippment.shippmentDate.toDateString() %></p>
             </div>
-
-
-            <!-- Products -->
-
             <div class="shipment-products">
-
-              <h3>
-                Products
-              </h3>
-
+              <h3>Products</h3>
               <% shippment.products.forEach(product => { %>
-
-                <p>
-
-                  <strong>
-                    <%= product.name %>
-                  </strong>
-
-                  -
-                  <%= product.price %> BHD
-
-                </p>
-
+                <p><strong><%= product.name %></strong> - <%= product.price %> BHD</p>
               <% }) %>
-
             </div>
-
-
-            <!-- View -->
-
-            <a
-              href="/shippments/<%= shippment._id %>"
-              class="view-shipment-button"
-            >
-              View Shipment
-            </a>
-
-
+            <a href="/shippments/<%= shippment._id %>" class="view-shipment-button">View Shipment</a>
           </div>
-
         <% }) %>
-
       </div>
-
     <% } %>
-
-
   </main>
-
 </body>
 </html>
-

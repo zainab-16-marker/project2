@@ -3,264 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>New Shipment | Zoi</title>
- <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
   <main class="admin-form-page">
-
     <div class="admin-page-header">
-
       <div>
         <h1>Add New Shipment</h1>
         <p>Create a new shipment</p>
       </div>
-
     </div>
-
-
     <form action="/shippments" method="POST" class="admin-form">
-
-
-      <!-- Customer -->
-
       <div class="form-group">
-
-        <label for="user">
-          Customer
-        </label>
-
+        <label for="user">Customer</label>
         <select name="user" id="user" required>
-
-          <option value="">
-            Select Customer
-          </option>
-
+          <option value="">Select Customer</option>
           <% users.forEach(user => { %>
-
-            <option value="<%= user._id %>">
-              <%= user.username %>
-            </option>
-
+            <option value="<%= user._id %>"><%= user.username %></option>
           <% }) %>
-
         </select>
-
       </div>
-
-
-      <!-- Products -->
-
       <div class="form-group">
-
-        <label for="productSearch">
-          Products
-        </label>
-
-        <input
-          type="text"
-          id="productSearch"
-          placeholder="Search products..."
-        >
-
+        <label for="productSearch">Products</label>
+        <input type="text" id="productSearch" placeholder="Search products...">
       </div>
-
-
       <div id="productList" class="product-list">
-
         <% products.forEach(product => { %>
-
           <div class="product-item">
-
-            <span>
-              <%= product.name %>
-            </span>
-
-            <button
-              type="button"
-              onclick="addProduct('<%= product._id %>', '<%= product.name %>')"
-              class="small-button"
-            >
-              Add
-            </button>
-
+            <span><%= product.name %></span>
+            <button type="button" onclick="addProduct('<%= product._id %>', '<%= product.name %>')" class="small-button">Add</button>
           </div>
-
         <% }) %>
-
       </div>
-
-
-      <!-- Selected Products -->
-
       <div class="form-group">
-
         <h3>Selected Products</h3>
-
-        <div
-          id="selectedProducts"
-          class="selected-products"
-        ></div>
-
+        <div id="selectedProducts" class="selected-products"></div>
       </div>
-
-
-      <!-- Status -->
-
       <div class="form-group">
-
-        <label for="status">
-          Status
-        </label>
-
+        <label for="status">Status</label>
         <select name="status" id="status">
-
-          <option value="pending">
-            Pending
-          </option>
-
-          <option value="shipped">
-            Shipped
-          </option>
-
-          <option value="delivered">
-            Delivered
-          </option>
-
+          <option value="pending">Pending</option>
+          <option value="shipped">Shipped</option>
+          <option value="delivered">Delivered</option>
         </select>
-
       </div>
-
-
-      <!-- Address -->
-
       <div class="form-group">
-
-        <label for="shippmentAdress">
-          Shipping Address
-        </label>
-
-        <input
-          type="text"
-          name="shippmentAdress"
-          id="shippmentAdress"
-          required
-        >
-
+        <label for="shippmentAdress">Shipping Address</label>
+        <input type="text" name="shippmentAdress" id="shippmentAdress" required>
       </div>
-
-
-      <!-- Date -->
-
       <div class="form-group">
-
-        <label for="shippmentDate">
-          Shipment Date
-        </label>
-
-        <input
-          type="date"
-          name="shippmentDate"
-          id="shippmentDate"
-          required
-        >
-
+        <label for="shippmentDate">Shipment Date</label>
+        <input type="date" name="shippmentDate" id="shippmentDate" required>
       </div>
-
-
-      <button type="submit" class="admin-button">
-        Create Shipment
-      </button>
-
+      <button type="submit" class="admin-button">Create Shipment</button>
     </form>
-
-
-    <a href="/shippments" class="back-link">
-      ← Back to Shipments
-    </a>
-
-
+    <a href="/shippments" class="back-link">← Back to Shipments</a>
   </main>
-
-
   <script>
-
     const searchInput = document.getElementById('productSearch');
-
     const productList = document.getElementById('productList');
-
     const selectedProducts = new Set();
-
-
     searchInput.addEventListener('input', () => {
-
       const searchValue = searchInput.value.toLowerCase();
-
       const products = productList.querySelectorAll('.product-item');
-
       products.forEach(product => {
-
-        const name = product
-          .querySelector('span')
-          .textContent
-          .toLowerCase();
-
+        const name = product.querySelector('span').textContent.toLowerCase();
         if (name.includes(searchValue)) {
           product.style.display = 'flex';
         } else {
           product.style.display = 'none';
         }
-
       });
-
     });
-
-
     function addProduct(id, name) {
-
       if (selectedProducts.has(id)) {
         return;
       }
-
       selectedProducts.add(id);
-
-
       const product = document.createElement('div');
-
       product.innerHTML = `
         <span>${name}</span>
-
         <button type="button" onclick="removeProduct('${id}', this)">
           Remove
         </button>
-
         <input
           type="hidden"
           name="products"
           value="${id}"
         >
       `;
-
-
-      document
-        .getElementById('selectedProducts')
-        .appendChild(product);
-
+      document.getElementById('selectedProducts').appendChild(product);
     }
-
-
     function removeProduct(id, button) {
-
       selectedProducts.delete(id);
-
       button.parentElement.remove();
-
     }
-
   </script>
-
 </body>
 </html>

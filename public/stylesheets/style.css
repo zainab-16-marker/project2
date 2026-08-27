@@ -7,7 +7,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Body positioning to make sure it stacks cleanly */
+
 body {
   display: flex;
   flex-direction: column;

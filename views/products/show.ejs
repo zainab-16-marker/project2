@@ -1,260 +1,78 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title><%= product.name %> | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
-  <!-- Admin Navbar -->
-
   <nav class="navbar">
-
     <a href="/admin/dashboard" class="navbar-logo">
-
-      <img
-        src="/images/logo.png"
-        alt="Zoi"
-      >
-
+      <img src="/images/logo.png" alt="Zoi">
     </a>
-
-
     <div class="navbar-actions">
-
-      <a href="/admin/dashboard">
-        Dashboard
-      </a>
-
-      <a href="/products">
-        Products
-      </a>
-
-      <a href="/shippments">
-        Shipments
-      </a>
-
-      <a
-        href="/auth/sign-out"
-        class="admin-signout"
-      >
-        Sign Out
-      </a>
-
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/products">Products</a>
+      <a href="/shippments">Shipments</a>
+      <a href="/auth/sign-out" class="admin-signout">Sign Out</a>
     </div>
-
   </nav>
-
-
   <main class="admin-form-page">
-
-
-    <!-- Back -->
-
-    <a
-      href="/products"
-      class="back-link"
-    >
-      ← Back to Products
-    </a>
-
-
-    <!-- Product Details -->
-
+    <a href="/products" class="back-link">← Back to Products</a>
     <section class="product-details-card">
-
-
-      <!-- Product Image -->
-
       <div class="product-details-image">
-
         <% if (product.category === 'tools&accessories' && product.name === 'product three') { %>
-
-          <img
-            src="/imges-acss/product1.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/product1.png" alt="<%= product.name %>">
         <% } else if (product.category === 'tools&accessories' && product.name === 'second product') { %>
-
-          <img
-            src="/imges-acss/product3.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/product3.png" alt="<%= product.name %>">
         <% } else if (product.category === 'tools&accessories' && product.name === 'product one') { %>
-
-          <img
-            src="/imges-acss/product2.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/product2.png" alt="<%= product.name %>">
         <% } else if (product.category === 'haircare' && product.name === 'product one') { %>
-
-          <img
-            src="/imges-acss/hair2.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/hair2.png" alt="<%= product.name %>">
         <% } else if (product.category === 'haircare' && product.name === 'product two') { %>
-
-          <img
-            src="/imges-acss/hair1.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/hair1.png" alt="<%= product.name %>">
         <% } else if (product.category === 'makeup' && product.name === 'first') { %>
-
-          <img
-            src="/imges-acss/makeup1.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/makeup1.png" alt="<%= product.name %>">
         <% } else if (product.category === 'makeup' && product.name === 'second') { %>
-
-          <img
-            src="/imges-acss/makeup2.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/makeup2.png" alt="<%= product.name %>">
         <% } else if (product.category === 'makeup' && product.name === 'third') { %>
-
-          <img
-            src="/imges-acss/makeup3.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/makeup3.png" alt="<%= product.name %>">
         <% } else if (product.category === 'makeup' && product.name === 'fourth') { %>
-
-          <img
-            src="/imges-acss/makeup4.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/makeup4.png" alt="<%= product.name %>">
         <% } else if (product.category === 'skincare' && product.name === 'fifth the eye patches') { %>
-
-          <img
-            src="/imges-acss/skin.png"
-            alt="<%= product.name %>"
-          >
-
+          <img src="/imges-acss/skin.png" alt="<%= product.name %>">
         <% } else { %>
-
           <p>Product Image</p>
-
         <% } %>
-
       </div>
-
-
-      <!-- Product Header -->
-
       <div class="product-details-header">
-
         <div>
-
-          <p class="product-category">
-            <%= product.category %>
-          </p>
-
-          <h1>
-            <%= product.name %>
-          </h1>
-
+          <p class="product-category"><%= product.category %></p>
+          <h1><%= product.name %></h1>
         </div>
-
       </div>
-
-
-      <!-- Product Information -->
-
       <div class="product-details-info">
-
-
         <div class="product-detail-item">
-
-          <p>
-            Price
-          </p>
-
-          <h2>
-            <%= product.price %> BHD
-          </h2>
-
+          <p>Price</p>
+          <h2><%= product.price %> BHD</h2>
         </div>
-
-
         <div class="product-detail-item">
-
-          <p>
-            Quantity
-          </p>
-
-          <h2>
-            <%= product.quantity %>
-          </h2>
-
+          <p>Quantity</p>
+          <h2><%= product.quantity %></h2>
         </div>
-
-
         <div class="product-detail-item">
-
-          <p>
-            Category
-          </p>
-
-          <h2>
-            <%= product.category %>
-          </h2>
-
+          <p>Category</p>
+          <h2><%= product.category %></h2>
         </div>
-
-
       </div>
-
-
-      <!-- Actions -->
-
       <div class="product-detail-actions">
-
-
-        <a
-          href="/products/<%= product._id %>/edit"
-          class="edit-product-button"
-        >
-          Edit Product
-        </a>
-
-
-        <form
-          action="/products/<%= product._id %>?_method=DELETE"
-          method="POST"
-        >
-
-          <button
-            type="submit"
-            class="delete-product-button"
-          >
-            Delete Product
-          </button>
-
+        <a href="/products/<%= product._id %>/edit" class="edit-product-button">Edit Product</a>
+        <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="delete-product-button">Delete Product</button>
         </form>
-
-
       </div>
-
-
     </section>
-
-
   </main>
-
 </body>
 </html>
-```

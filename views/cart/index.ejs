@@ -3,181 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Cart | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
   <%- include('../partials/_navCustomer.ejs') %>
-
-
-  <!-- Cart -->
-
   <main class="cart-page">
-
     <h1>Your Cart</h1>
-
-
     <% if (cart.length === 0) { %>
-
       <section class="empty-cart">
-
         <h2>Your cart is empty</h2>
-
-        <p>
-          You haven't added any products yet.
-        </p>
-
-        <a href="/shop" class="continue-shopping">
-          Continue Shopping
-        </a>
-
+        <p>You haven't added any products yet.</p>
+        <a href="/shop" class="continue-shopping">Continue Shopping</a>
       </section>
-
-
     <% } else { %>
-
-
       <div class="cart-layout">
-
-
-        <!-- Cart Products -->
-
         <section class="cart-products">
-
           <% cart.forEach(item => { %>
-
             <div class="cart-card">
-
-
-              <!-- Product Information -->
-
               <div class="cart-product-info">
-
-                <p class="product-category">
-                  <%= item.category %>
-                </p>
-
-                <h2>
-                  <%= item.name %>
-                </h2>
-
-                <p class="cart-price">
-                  <%= item.price %> BHD
-                </p>
-
-
-                <!-- Update Quantity -->
-
-                <form
-                  action="/cart/<%= item.product %>?_method=PUT"
-                  method="POST"
-                  class="quantity-form"
-                >
-
-                  <label for="quantity-<%= item.product %>">
-                    Quantity
-                  </label>
-
+                <p class="product-category"><%= item.category %></p>
+                <h2><%= item.name %></h2>
+                <p class="cart-price"><%= item.price %> BHD</p>
+                <form action="/cart/<%= item.product %>?_method=PUT" method="POST" class="quantity-form">
+                  <label for="quantity-<%= item.product %>">Quantity</label>
                   <div class="quantity-controls">
-
-                    <input
-                      type="number"
-                      id="quantity-<%= item.product %>"
-                      name="quantity"
-                      value="<%= item.quantity %>"
-                      min="1"
-                      required
-                    >
-
-                    <button type="submit">
-                      Update
-                    </button>
-
+                    <input type="number" id="quantity-<%= item.product %>" name="quantity" value="<%= item.quantity %>" min="1" required>
+                    <button type="submit">Update</button>
                   </div>
-
                 </form>
-
-
-                <!-- Remove -->
-
-                <form
-                  action="/cart/<%= item.product %>?_method=DELETE"
-                  method="POST"
-                >
-
-                  <button
-                    type="submit"
-                    class="remove-button"
-                  >
-                    Remove
-                  </button>
-
+                <form action="/cart/<%= item.product %>?_method=DELETE" method="POST">
+                  <button type="submit" class="remove-button">Remove</button>
                 </form>
-
               </div>
-
             </div>
-
           <% }) %>
-
         </section>
-
-
-        <!-- Cart Summary -->
-
         <aside class="cart-summary">
-
           <h2>Order Summary</h2>
-
           <div class="summary-line">
-
             <span>Items</span>
-
-            <span>
-              <%= cart.reduce((total, item) => total + Number(item.quantity), 0) %>
-            </span>
-
+            <span><%= cart.reduce((total, item) => total + Number(item.quantity), 0) %></span>
           </div>
-
-
           <div class="summary-line">
-
             <span>Total</span>
-
-            <strong>
-              <%= cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2) %>
-              BHD
-            </strong>
-
+            <strong><%= cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2) %> BHD</strong>
           </div>
-
-
-          <a
-            href="/checkout"
-            class="checkout-button"
-          >
-            Checkout
-          </a>
-
-
-          <a
-            href="/shop"
-            class="continue-shopping cart-continue"
-          >
-            Continue Shopping
-          </a>
-
+          <a href="/checkout" class="checkout-button">Checkout</a>
+          <a href="/shop" class="continue-shopping cart-continue">Continue Shopping</a>
         </aside>
-
       </div>
-
     <% } %>
-
   </main>
-
 </body>
 </html>

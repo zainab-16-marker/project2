@@ -1,6 +1,3 @@
-/* =========================
-   ZOI SHOP
-   ========================= */
 
 * {
   box-sizing: border-box;
@@ -14,9 +11,6 @@ body {
 }
 
 
-/* =========================
-   SHOP PAGE
-   ========================= */
 
 .shop-page {
   max-width: 1200px;
@@ -33,11 +27,6 @@ body {
   color: #6B5550;
 }
 
-
-/* =========================
-   SECTIONS
-   ========================= */
-
 .shop-section {
   margin-bottom: 65px;
 }
@@ -49,22 +38,11 @@ body {
   margin-bottom: 28px;
   color: #6B5550;
 }
-
-
-/* =========================
-   PRODUCT GRID
-   ========================= */
-
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
-
-
-/* =========================
-   PRODUCT CARD
-   ========================= */
 
 .product-card {
   background-color: #E7D7C9;
@@ -79,12 +57,6 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 12px 25px rgba(107, 85, 80, 0.15);
 }
-
-
-/* =========================
-   PRODUCT IMAGE
-   ========================= */
-
 .product-image {
   height: 220px;
   display: flex;
@@ -104,11 +76,6 @@ body {
   color: #9A7A70;
   font-size: 14px;
 }
-
-
-/* =========================
-   PRODUCT INFO
-   ========================= */
 
 .product-info {
   padding: 24px;
@@ -137,11 +104,6 @@ body {
   color: #8A6259;
 }
 
-
-/* =========================
-   VIEW PRODUCT BUTTON
-   ========================= */
-
 .view-button {
   display: inline-block;
   padding: 11px 23px;
@@ -158,11 +120,6 @@ body {
   background-color: #C69F93;
   transform: translateY(-2px);
 }
-
-
-/* =========================
-   CATEGORIES
-   ========================= */
 
 .categories {
   display: flex;
@@ -189,10 +146,6 @@ body {
   transform: translateY(-2px);
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 900px) {
 
@@ -230,9 +183,7 @@ body {
   }
 
 }
-/* =========================
-   NAVBAR
-   ========================= */
+
 
 .navbar {
   height: 80px;
@@ -247,11 +198,6 @@ body {
   position: relative;
 }
 
-
-/* =========================
-   LOGO
-   ========================= */
-
 .navbar-logo {
   font-family: Georgia, serif;
   font-size: 28px;
@@ -261,20 +207,12 @@ body {
 }
 
 
-/* =========================
-   NAVBAR ACTIONS
-   ========================= */
-
 .navbar-actions {
   display: flex;
   align-items: center;
   gap: 22px;
 }
 
-
-/* =========================
-   CART
-   ========================= */
 
 .cart-link {
   text-decoration: none;
@@ -292,9 +230,6 @@ body {
 }
 
 
-/* =========================
-   MENU BUTTON
-   ========================= */
 
 .menu-button {
   border: none;
@@ -313,10 +248,6 @@ body {
   transform: scale(1.1);
 }
 
-
-/* =========================
-   DROPDOWN MENU
-   ========================= */
 
 .dropdown-menu {
   display: none;
@@ -359,11 +290,6 @@ body {
   background-color: #E7D7C9;
 }
 
-
-/* =========================
-   NAVBAR MOBILE
-   ========================= */
-
 @media (max-width: 600px) {
 
   .navbar {
@@ -383,9 +309,6 @@ body {
   }
 
 }
-/* =========================
-   SHIPMENTS PAGE
-   ========================= */
 
 .shipments-page {
   max-width: 1200px;
@@ -403,9 +326,6 @@ body {
 }
 
 
-/* =========================
-   SHIPMENTS GRID
-   ========================= */
 
 .shipments-grid {
   display: grid;
@@ -413,10 +333,6 @@ body {
   gap: 30px;
 }
 
-
-/* =========================
-   SHIPMENT CARD
-   ========================= */
 
 .shipment-card {
   background-color: #E7D7C9;
@@ -435,10 +351,6 @@ body {
 }
 
 
-/* =========================
-   SHIPMENT HEADER
-   ========================= */
-
 .shipment-card-header {
   display: flex;
   justify-content: space-between;
@@ -456,11 +368,6 @@ body {
   font-weight: normal;
   color: #6B5550;
 }
-
-
-/* =========================
-   STATUS
-   ========================= */
 
 .shipment-status {
   padding: 7px 14px;
@@ -485,11 +392,7 @@ body {
   background-color: #C9D8C5;
   color: #4F604A;
 }
-
-
-/* =========================
-   SHIPMENT INFO
-   ========================= */
+ */
 
 .shipment-info p {
   margin: 10px 0;
@@ -501,10 +404,6 @@ body {
   color: #5F4842;
 }
 
-
-/* =========================
-   PRODUCTS
-   ========================= */
 
 .shipment-products {
   margin-top: 22px;
@@ -527,10 +426,6 @@ body {
   color: #8A6259;
 }
 
-
-/* =========================
-   TRACK BUTTON
-   ========================= */
 
 .track-button {
   display: block;
@@ -558,9 +453,6 @@ body {
 }
 
 
-/* =========================
-   CONTINUE SHOPPING
-   ========================= */
 
 .continue-shopping-container {
   text-align: center;
@@ -590,9 +482,6 @@ body {
 }
 
 
-/* =========================
-   EMPTY SHIPMENTS
-   ========================= */
 
 .empty-shipments {
   text-align: center;
@@ -617,10 +506,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
-
 @media (max-width: 800px) {
 
   .shipments-grid {
@@ -640,9 +525,7 @@ body {
   }
 
 }
-/* =========================
-   TRACKING PAGE
-   ========================= */
+
 
 .tracking-page {
   max-width: 900px;
@@ -678,10 +561,6 @@ body {
 }
 
 
-/* =========================
-   TRACKING CARD
-   ========================= */
-
 .tracking-card {
   background-color: #E7D7C9;
 
@@ -694,9 +573,6 @@ body {
 }
 
 
-/* =========================
-   TRACKING HEADER
-   ========================= */
 
 .tracking-header {
   display: flex;
@@ -719,9 +595,6 @@ body {
 }
 
 
-/* =========================
-   DETAILS
-   ========================= */
 
 .tracking-details {
   display: grid;
@@ -746,11 +619,6 @@ body {
 
   color: #9A7A70 !important;
 }
-
-
-/* =========================
-   TRACKING PROGRESS
-   ========================= */
 
 .tracking-progress {
   display: flex;
@@ -816,9 +684,6 @@ body {
 }
 
 
-/* =========================
-   PRODUCTS
-   ========================= */
 
 .tracking-products {
   border-top: 1px solid #D4B2A7;
@@ -846,21 +711,12 @@ body {
   color: #6B5550;
 }
 
-
-/* =========================
-   ACTIONS
-   ========================= */
-
 .tracking-actions {
   text-align: center;
 
   margin-top: 35px;
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 700px) {
 
@@ -903,9 +759,7 @@ body {
   }
 
 }
-/* =========================
-   CART PAGE
-   ========================= */
+
 
 .cart-page {
   max-width: 1200px;
@@ -926,10 +780,6 @@ body {
 }
 
 
-/* =========================
-   CART LAYOUT
-   ========================= */
-
 .cart-layout {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -939,9 +789,7 @@ body {
 }
 
 
-/* =========================
-   CART PRODUCTS
-   ========================= */
+
 
 .cart-products {
   display: flex;
@@ -950,9 +798,6 @@ body {
 }
 
 
-/* =========================
-   CART CARD
-   ========================= */
 
 .cart-card {
   display: flex;
@@ -969,9 +814,6 @@ body {
 }
 
 
-/* =========================
-   PRODUCT IMAGE
-   ========================= */
 
 .cart-product-image {
   width: 180px;
@@ -993,9 +835,6 @@ body {
 }
 
 
-/* =========================
-   PRODUCT INFO
-   ========================= */
 
 .cart-product-info {
   flex: 1;
@@ -1021,9 +860,6 @@ body {
 }
 
 
-/* =========================
-   QUANTITY
-   ========================= */
 
 .quantity-form {
   margin-bottom: 12px;
@@ -1078,9 +914,6 @@ body {
 }
 
 
-/* =========================
-   REMOVE BUTTON
-   ========================= */
 
 .remove-button {
   padding: 7px 0;
@@ -1099,10 +932,6 @@ body {
   text-decoration: underline;
 }
 
-
-/* =========================
-   CART SUMMARY
-   ========================= */
 
 .cart-summary {
   background-color: #E7D7C9;
@@ -1130,9 +959,6 @@ body {
 }
 
 
-/* =========================
-   SUMMARY LINES
-   ========================= */
 
 .summary-line {
   display: flex;
@@ -1150,9 +976,6 @@ body {
 }
 
 
-/* =========================
-   CHECKOUT
-   ========================= */
 
 .checkout-button {
   display: block;
@@ -1178,9 +1001,6 @@ body {
 }
 
 
-/* =========================
-   CONTINUE SHOPPING
-   ========================= */
 
 .cart-continue {
   display: block;
@@ -1198,9 +1018,6 @@ body {
 }
 
 
-/* =========================
-   EMPTY CART
-   ========================= */
 
 .empty-cart {
   max-width: 600px;
@@ -1232,9 +1049,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 850px) {
 
@@ -1269,9 +1083,7 @@ body {
   }
 
 }
-/* =========================
-   CHECKOUT PAGE
-   ========================= */
+
 
 .checkout-page {
   max-width: 1200px;
@@ -1292,9 +1104,6 @@ body {
 }
 
 
-/* =========================
-   CHECKOUT LAYOUT
-   ========================= */
 
 .checkout-layout {
   display: grid;
@@ -1305,10 +1114,6 @@ body {
   align-items: start;
 }
 
-
-/* =========================
-   PRODUCTS
-   ========================= */
 
 .checkout-products {
   background-color: #E7D7C9;
@@ -1332,10 +1137,6 @@ body {
   color: #6B5550;
 }
 
-
-/* =========================
-   PRODUCT CARD
-   ========================= */
 
 .checkout-product-card {
   display: flex;
@@ -1390,9 +1191,6 @@ body {
 }
 
 
-/* =========================
-   TOTAL
-   ========================= */
 
 .checkout-total {
   display: flex;
@@ -1411,9 +1209,6 @@ body {
 }
 
 
-/* =========================
-   FORM CARD
-   ========================= */
 
 .checkout-form-card {
   background-color: #E7D7C9;
@@ -1438,9 +1233,6 @@ body {
 }
 
 
-/* =========================
-   FORM
-   ========================= */
 
 .form-group {
   margin-bottom: 22px;
@@ -1481,11 +1273,6 @@ body {
   border-color: #B99084;
 }
 
-
-/* =========================
-   PLACE ORDER
-   ========================= */
-
 .place-order-button {
   width: 100%;
 
@@ -1511,10 +1298,6 @@ body {
 }
 
 
-/* =========================
-   BACK TO CART
-   ========================= */
-
 .back-to-cart {
   display: block;
 
@@ -1532,11 +1315,6 @@ body {
 .back-to-cart:hover {
   text-decoration: underline;
 }
-
-
-/* =========================
-   EMPTY CHECKOUT
-   ========================= */
 
 .empty-checkout {
   max-width: 600px;
@@ -1572,10 +1350,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
-
 @media (max-width: 850px) {
 
   .checkout-layout {
@@ -1605,9 +1379,6 @@ body {
   }
 
 }
-/* =========================
-   SHOP PRODUCT BUTTONS
-   ========================= */
 
 .product-info {
   display: flex;
@@ -1671,9 +1442,7 @@ body {
 .view-button:hover {
   background-color: #D4B2A7;
 }
-/* =========================
-   PRODUCT DETAILS PAGE
-   ========================= */
+
 
 .product-details-page {
   max-width: 1100px;
@@ -1891,13 +1660,7 @@ body {
   }
 
 }
-/* =========================
-   ADMIN DASHBOARD
-   ========================= */
 
-/* =========================
-   ADMIN DASHBOARD
-   ========================= */
 
 body {
   margin: 0;
@@ -1909,10 +1672,6 @@ body {
   color: #6B5550;
 }
 
-
-/* =========================
-   HEADER
-   ========================= */
 
 .dashboard-header {
   text-align: center;
@@ -1941,10 +1700,6 @@ body {
 }
 
 
-/* =========================
-   DASHBOARD
-   ========================= */
-
 .dashboard {
   max-width: 1100px;
 
@@ -1952,11 +1707,6 @@ body {
 
   padding: 20px 30px 50px;
 }
-
-
-/* =========================
-   VISUALS
-   ========================= */
 
 .dashboard-visuals {
   display: grid;
@@ -1995,9 +1745,6 @@ body {
 }
 
 
-/* =========================
-   BAR CHART
-   ========================= */
 
 .chart {
   height: 250px;
@@ -2066,9 +1813,6 @@ body {
 }
 
 
-/* =========================
-   TOTAL CARDS
-   ========================= */
 
 .dashboard-cards {
   display: grid;
@@ -2123,9 +1867,6 @@ body {
 }
 
 
-/* =========================
-   BUTTON
-   ========================= */
 
 .dashboard-button {
   display: inline-block;
@@ -2152,9 +1893,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 700px) {
 
@@ -2169,9 +1907,6 @@ body {
 
 }
 
-/* =========================
-   CUSTOMERS
-   ========================= */
 
 .customers-card {
   background-color: #E7D7C9;
@@ -2218,9 +1953,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 700px) {
 
@@ -2237,9 +1969,6 @@ body {
   }
 
 }
-/* =========================
-   CHARTS
-   ========================= */
 
 .charts {
   display: grid;
@@ -2373,10 +2102,6 @@ body {
   }
 
 }
-/* =========================
-   ADMIN SHIPMENTS
-   ========================= */
-
 .admin-page,
 .admin-form-page {
   max-width: 1100px;
@@ -2616,9 +2341,6 @@ body {
 }
 
 
-/* =========================
-   NEW SHIPMENT FORM
-   ========================= */
 
 .admin-form {
   max-width: 700px;
@@ -2775,9 +2497,6 @@ body {
 }
 
 
-/* =========================
-   SHIPMENT DETAILS
-   ========================= */
 
 .shipment-details-card {
   margin-top: 25px;
@@ -3028,9 +2747,7 @@ body {
 .delete-shipment-button:hover {
   background-color: #5F4842;
 }
-/* =========================
-   ADMIN NAVBAR
-   ========================= */
+
 
 .admin-navbar {
   display: flex;
@@ -3045,9 +2762,6 @@ body {
 
   border-bottom: 1px solid #D4B2A7;
 }
-/* =========================
-   LOGO
-   ========================= */
 
 .navbar-logo {
 
@@ -3111,9 +2825,6 @@ body {
   }
 
 }
-/* =========================
-   ADMIN PRODUCTS
-   ========================= */
 
 .admin-page {
   max-width: 1100px;
@@ -3302,10 +3013,6 @@ body {
 }
 
 
-/* =========================
-   PRODUCT DETAILS
-   ========================= */
-
 .admin-form-page {
   max-width: 850px;
 
@@ -3472,10 +3179,6 @@ body {
 }
 
 
-/* =========================
-   ADD / EDIT PRODUCT FORM
-   ========================= */
-
 .admin-form-card {
   background-color: #EDE9E3;
 
@@ -3579,10 +3282,6 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
-
 @media (max-width: 800px) {
 
   .products-grid {
@@ -3612,9 +3311,6 @@ body {
   }
 
 }
-/* =========================
-   ADD PRODUCT PAGE
-   ========================= */
 
 .admin-form-page {
   max-width: 850px;
@@ -3735,9 +3431,7 @@ body {
 .back-link:hover {
   color: #9A7A70;
 }
-/* =========================
-   ADMIN FORM
-   ========================= */
+
 
 .admin-form-page {
   max-width: 850px;
@@ -3892,10 +3586,6 @@ body {
 .cancel-link:hover {
   color: #9A7A70;
 }
-/* =========================
-   AUTH PAGES
-   ========================= */
-
 .auth-page {
   min-height: 100vh;
 
@@ -4065,9 +3755,6 @@ body {
 
   margin-bottom: 25px;
 }
-/* =========================
-   ZOI INTRO PAGE
-========================= */
 
 .intro-page {
   min-height: 100vh;
@@ -4351,9 +4038,6 @@ body {
   max-height: 30px !important;
   object-fit: contain !important;
 }
-/* =========================
-   CUSTOMER NAVBAR
-   ========================= */
 
 .navbar {
   height: 80px;
@@ -4536,10 +4220,6 @@ body {
   object-fit: contain;
   display: block;
 }
-/* =========================
-   FOOTER
-   ========================= */
-
 #footer {
   margin-top: 60px;
   padding: 30px 20px;
@@ -4565,9 +4245,6 @@ body {
 .instagram-link:hover {
   color: #5F4842;
 }
-/* =========================
-   CART PRODUCT IMAGE
-   ========================= */
 
 .cart-product-image {
   width: 180px;

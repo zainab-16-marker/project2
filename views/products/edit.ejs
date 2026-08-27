@@ -1,253 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Edit Product | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
-  <!-- Admin Navbar -->
-
   <nav class="navbar">
-
     <a href="/admin/dashboard" class="navbar-logo">
-
-      <img
-        src="/images/logo.png"
-        alt="Zoi"
-      >
-
+      <img src="/images/logo.png" alt="Zoi">
     </a>
-
-
     <div class="navbar-actions">
-
-      <a href="/admin/dashboard">
-        Dashboard
-      </a>
-
-      <a href="/products">
-        Products
-      </a>
-
-      <a href="/shippments">
-        Shipments
-      </a>
-
-      <a
-        href="/auth/sign-out"
-        class="admin-signout"
-      >
-        Sign Out
-      </a>
-
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/products">Products</a>
+      <a href="/shippments">Shipments</a>
+      <a href="/auth/sign-out" class="admin-signout">Sign Out</a>
     </div>
-
   </nav>
-
-
   <main class="admin-form-page">
-
-
-    <!-- Back -->
-
-    <a
-      href="/products/<%= product._id %>"
-      class="back-link"
-    >
-      ← Back to Product
-    </a>
-
-
-    <!-- Edit Product -->
-
+    <a href="/products/<%= product._id %>" class="back-link">← Back to Product</a>
     <section class="admin-form-card">
-
       <div class="admin-form-header">
-
-        <h1>
-          Edit Product
-        </h1>
-
-        <p>
-          Update product information
-        </p>
-
+        <h1>Edit Product</h1>
+        <p>Update product information</p>
       </div>
-
-
-      <form
-        action="/products/<%= product._id %>?_method=PUT"
-        method="POST"
-        class="admin-form"
-      >
-
-
-        <!-- Product Name -->
-
+      <form action="/products/<%= product._id %>?_method=PUT" method="POST" class="admin-form">
         <div class="form-group">
-
-          <label for="name">
-            Product Name
-          </label>
-
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value="<%= product.name %>"
-            required
-          >
-
+          <label for="name">Product Name</label>
+          <input type="text" id="name" name="name" value="<%= product.name %>" required>
         </div>
-
-
-        <!-- Price -->
-
         <div class="form-group">
-
-          <label for="price">
-            Price
-          </label>
-
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value="<%= product.price %>"
-            min="0"
-            step="0.01"
-            required
-          >
-
+          <label for="price">Price</label>
+          <input type="number" id="price" name="price" value="<%= product.price %>" min="0" step="0.01" required>
         </div>
-
-
-        <!-- Quantity -->
-
         <div class="form-group">
-
-          <label for="quantity">
-            Quantity
-          </label>
-
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value="<%= product.quantity %>"
-            min="0"
-            required
-          >
-
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value="<%= product.quantity %>" min="0" required>
         </div>
-
-
-        <!-- Category -->
-
         <div class="form-group">
-
-          <label for="category">
-            Category
-          </label>
-
-          <select
-            id="category"
-            name="category"
-            required
-          >
-
-            <option
-              value="skincare"
-              <%= product.category === 'skincare' ? 'selected' : '' %>
-            >
-              Skincare
-            </option>
-
-            <option
-              value="makeup"
-              <%= product.category === 'makeup' ? 'selected' : '' %>
-            >
-              Makeup
-            </option>
-
-            <option
-              value="haircare"
-              <%= product.category === 'haircare' ? 'selected' : '' %>
-            >
-              Haircare
-            </option>
-
-            <option
-              value="bodycare"
-              <%= product.category === 'bodycare' ? 'selected' : '' %>
-            >
-              Bodycare
-            </option>
-
-            <option
-              value="tools&accessories"
-              <%= product.category === 'tools&accessories' ? 'selected' : '' %>
-            >
-              Tools & Accessories
-            </option>
-
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="skincare" <%= product.category === 'skincare' ? 'selected' : '' %>>Skincare</option>
+            <option value="makeup" <%= product.category === 'makeup' ? 'selected' : '' %>>Makeup</option>
+            <option value="haircare" <%= product.category === 'haircare' ? 'selected' : '' %>>Haircare</option>
+            <option value="bodycare" <%= product.category === 'bodycare' ? 'selected' : '' %>>Bodycare</option>
+            <option value="tools&accessories" <%= product.category === 'tools&accessories' ? 'selected' : '' %>>Tools & Accessories</option>
           </select>
-
         </div>
-
-
-        <!-- Product Image -->
-
         <div class="form-group">
-
-          <label for="image">
-            Product Image
-          </label>
-
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value="<%= product.image || '' %>"
-            placeholder="/accessories/product1.png"
-          >
-
+          <label for="image">Product Image</label>
+          <input type="text" id="image" name="image" value="<%= product.image || '' %>" placeholder="/accessories/product1.png">
         </div>
-
-
-        <!-- Update -->
-
-        <button
-          type="submit"
-          class="admin-button"
-        >
-          Update Product
-        </button>
-
-
+        <button type="submit" class="admin-button">Update Product</button>
       </form>
-
-
-      <a
-        href="/products/<%= product._id %>"
-        class="cancel-link"
-      >
-        Cancel
-      </a>
-
-
+      <a href="/products/<%= product._id %>" class="cancel-link">Cancel</a>
     </section>
-
-
   </main>
-
 </body>
 </html>
-

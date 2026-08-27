@@ -3,203 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Add Product | Zoi</title>
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-
-  <!-- Admin Navbar -->
-
   <nav class="navbar">
-
     <a href="/admin/dashboard" class="navbar-logo">
-
-      <img
-        src="/images/logo.png"
-        alt="Zoi"
-      >
-
+      <img src="/images/logo.png" alt="Zoi">
     </a>
-
-
     <div class="navbar-actions">
-
-      <a href="/admin/dashboard">
-        Dashboard
-      </a>
-
-      <a href="/products">
-        Products
-      </a>
-
-      <a href="/shippments">
-        Shipments
-      </a>
-
-      <a
-        href="/auth/sign-out"
-        class="admin-signout"
-      >
-        Sign Out
-      </a>
-
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/products">Products</a>
+      <a href="/shippments">Shipments</a>
+      <a href="/auth/sign-out" class="admin-signout">Sign Out</a>
     </div>
-
   </nav>
-
-
   <main class="admin-form-page">
-
-    <a
-      href="/products"
-      class="back-link"
-    >
-      ← Back to Products
-    </a>
-
-
+    <a href="/products" class="back-link">← Back to Products</a>
     <section class="admin-form-card">
-
       <div class="admin-form-header">
-
-        <h1>
-          Add New Product
-        </h1>
-
-        <p>
-          Add a new product to your store
-        </p>
-
+        <h1>Add New Product</h1>
+        <p>Add a new product to your store</p>
       </div>
-
-
-      <form
-        action="/products"
-        method="POST"
-        class="admin-form"
-      >
-
-        <!-- Product Name -->
-
+      <form action="/products" method="POST" class="admin-form">
         <div class="form-group">
-
-          <label for="name">
-            Product Name
-          </label>
-
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-          >
-
+          <label for="name">Product Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
-
-
-        <!-- Price -->
-
         <div class="form-group">
-
-          <label for="price">
-            Price
-          </label>
-
-          <input
-            type="number"
-            id="price"
-            name="price"
-            min="0"
-            step="0.01"
-            required
-          >
-
+          <label for="price">Price</label>
+          <input type="number" id="price" name="price" min="0" step="0.01" required>
         </div>
-
-
-        <!-- Quantity -->
-
         <div class="form-group">
-
-          <label for="quantity">
-            Quantity
-          </label>
-
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            min="0"
-            required
-          >
-
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="0" required>
         </div>
-
-
-        <!-- Category -->
-
         <div class="form-group">
-
-          <label for="category">
-            Category
-          </label>
-
-          <select
-            id="category"
-            name="category"
-            required
-          >
-
-            <option value="skincare">
-              Skincare
-            </option>
-
-            <option value="makeup">
-              Makeup
-            </option>
-
-            <option value="haircare">
-              Haircare
-            </option>
-
-            <option value="bodycare">
-              Bodycare
-            </option>
-
-            <option value="tools&accessories">
-              Tools & Accessories
-            </option>
-
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="skincare">Skincare</option>
+            <option value="makeup">Makeup</option>
+            <option value="haircare">Haircare</option>
+            <option value="bodycare">Bodycare</option>
+            <option value="tools&accessories">Tools & Accessories</option>
           </select>
-
         </div>
-
-
-        <!-- Add Product -->
-
-        <button
-          type="submit"
-          class="admin-button"
-        >
-          Add Product
-        </button>
-
+        <button type="submit" class="admin-button">Add Product</button>
       </form>
-
-
-      <a
-        href="/products"
-        class="cancel-link"
-      >
-        Cancel
-      </a>
-
+      <a href="/products" class="cancel-link">Cancel</a>
     </section>
-
   </main>
-
 </body>
 </html>
