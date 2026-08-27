@@ -13,13 +13,19 @@
 
   <!-- Admin Navbar -->
 
-  <nav class="admin-navbar">
+  <nav class="navbar">
 
-    <a href="/admin/dashboard" class="admin-logo">
-      ZOI
+    <a href="/admin/dashboard" class="navbar-logo">
+
+      <img
+        src="/images/logo.png"
+        alt="Zoi"
+      >
+
     </a>
 
-    <div class="admin-nav-links">
+
+    <div class="navbar-actions">
 
       <a href="/admin/dashboard">
         Dashboard
@@ -33,7 +39,10 @@
         Shipments
       </a>
 
-      <a href="/auth/sign-out">
+      <a
+        href="/auth/sign-out"
+        class="admin-signout"
+      >
         Sign Out
       </a>
 
@@ -44,7 +53,10 @@
 
   <main class="admin-form-page">
 
-    <a href="/products" class="back-link">
+    <a
+      href="/products"
+      class="back-link"
+    >
       ← Back to Products
     </a>
 
@@ -53,9 +65,13 @@
 
       <div class="admin-form-header">
 
-        <h1>Add New Product</h1>
+        <h1>
+          Add New Product
+        </h1>
 
-        <p>Add a new product to your store</p>
+        <p>
+          Add a new product to your store
+        </p>
 
       </div>
 
@@ -96,6 +112,8 @@
             type="number"
             id="price"
             name="price"
+            min="0"
+            step="0.01"
             required
           >
 
@@ -114,6 +132,7 @@
             type="number"
             id="quantity"
             name="quantity"
+            min="0"
             required
           >
 
@@ -158,6 +177,8 @@
 
         </div>
 
+
+        <!-- Add Product -->
 
         <button
           type="submit"
